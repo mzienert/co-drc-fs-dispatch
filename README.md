@@ -34,7 +34,9 @@ The `DispatchCenterTemplate` folder contains:
 
 🌐 **[Public Repository Guidelines](docs/PUBLIC-REPOSITORY.md)** - Open source policy, security considerations, publishing guidance
 
-🎨 **[CSS Framework Expectations](docs/CSS-EXPECTATIONS.md)** - USWDS structure, customization limits, styling guidelines
+🎨 **[CSS Framework Expectations](docs/CSS-EXPECTATIONS.md)** - ~~USWDS structure~~ Original assumptions (corrected post-analysis)
+
+🎨 **[RMCC CSS Framework](docs/RMCC-CSS-FRAMEWORK.md)** - Actual framework documentation (custom flexbox system)
 
 📋 **[Planning Guide](docs/PLANNING-GUIDE.md)** - Comprehensive guide for website planning sessions and content strategy
 

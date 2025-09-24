@@ -1,20 +1,34 @@
 # CSS Framework Expectations
 
+> **⚠️ CORRECTION NOTICE (Post-Initial Meeting):**
+> **After analyzing the actual RMCC CSS framework at https://gacc.nifc.gov/rmcc/, it was determined that the framework is NOT built on USWDS as originally expected.** The actual framework is a custom flexbox-based system. See [RMCC-CSS-FRAMEWORK.md](./RMCC-CSS-FRAMEWORK.md) for accurate documentation of the actual implementation.
+>
+> **The content below represents the original assumptions made during initial analysis and is preserved for reference.**
+
 ## Overview
 
 The `/rmcc/assets/css/main.css` file contains the shared CSS framework that powers all dispatch center websites. Understanding its structure helps you work within the system's constraints and leverage its capabilities.
 
-## Expected Framework: U.S. Web Design System (USWDS)
+## Expected Framework: U.S. Web Design System (USWDS) ❌
 
-### Base Framework
-The CSS is built on the **U.S. Web Design System**, which is the federal government's official design framework:
+> **ACTUAL FRAMEWORK FOUND:** Custom flexbox-based CSS framework (not USWDS)
 
-- **Version**: Likely USWDS 3.x with Forest Service customizations
-- **Architecture**: Sass-compiled CSS with utility classes
-- **Methodology**: BEM (Block Element Modifier) naming convention
-- **Grid System**: 12-column responsive grid system
+### Base Framework ❌
+~~The CSS is built on the **U.S. Web Design System**, which is the federal government's official design framework:~~
 
-### Typography System
+**ACTUAL IMPLEMENTATION:**
+- **Type**: Custom flexbox-based framework
+- **Architecture**: SCSS-compiled CSS with component and utility classes
+- **Typography**: "Open Sans" + "Roboto Slab" (not Source Sans Pro)
+- **Primary Color**: #f56a6a coral red (not USWDS blue)
+- **Grid System**: 12-column responsive flexbox grid with `.row`/`.col-*` classes
+
+~~- **Version**: Likely USWDS 3.x with Forest Service customizations~~
+~~- **Architecture**: Sass-compiled CSS with utility classes~~
+~~- **Methodology**: BEM (Block Element Modifier) naming convention~~
+~~- **Grid System**: 12-column responsive grid system~~
+
+### Typography System ❌
 ```css
 /* Expected font stack */
 font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
@@ -25,17 +39,40 @@ h2 { font-size: 2rem; }    /* 32px */
 h3 { font-size: 1.5rem; }  /* 24px */
 ```
 
-### Color Palette
-**USWDS Base Colors:**
-- `--color-blue-60`: Primary actions and links
-- `--color-red-50`: Error states and alerts
-- `--color-green-50`: Success states
-- `--color-gray-90`: Primary text
+**ACTUAL TYPOGRAPHY:**
+```css
+/* Actual font stack */
+font-family: "Open Sans", sans-serif;          /* Body text */
+font-family: "Roboto Slab", serif;             /* Headings */
 
-**USFS Customizations (Expected):**
-- `--usfs-green`: #006847 (Forest Service primary)
-- `--fire-red`: #d63384 (Emergency alerts)
-- `--earth-brown`: #8B4513 (Secondary branding)
+/* Actual heading hierarchy */
+h1 { font-size: 4em; }      /* ~64px */
+h2 { font-size: 3.5em; }    /* ~56px */
+h3 { font-size: 1.75em; }   /* ~28px */
+```
+
+### Color Palette ❌
+~~**USWDS Base Colors:**~~
+~~- `--color-blue-60`: Primary actions and links~~
+~~- `--color-red-50`: Error states and alerts~~
+~~- `--color-green-50`: Success states~~
+~~- `--color-gray-90`: Primary text~~
+
+~~**USFS Customizations (Expected):**~~
+~~- `--usfs-green`: #006847 (Forest Service primary)~~
+~~- `--fire-red`: #d63384 (Emergency alerts)~~
+~~- `--earth-brown`: #8B4513 (Secondary branding)~~
+
+**ACTUAL COLOR PALETTE:**
+- **Primary**: `#f56a6a` (Coral red - main brand color)
+- **Text Colors**:
+  - Primary: `#3d4449` (Dark charcoal)
+  - Secondary: `#7f888f` (Medium gray)
+  - Muted: `#9fa3a6` (Light gray)
+- **Backgrounds**:
+  - White: `#ffffff`
+  - Light: `#f5f6f7`
+  - Accent: `#eff1f2`
 
 ## Layout Structure
 
@@ -74,17 +111,34 @@ Based on your template, these classes likely exist:
 
 ## Responsive Design Framework
 
-### Breakpoints (USWDS Standard)
-- **Mobile**: < 640px (`mobile-lg`)
-- **Tablet**: 640px - 1023px (`tablet`)
-- **Desktop**: 1024px+ (`desktop`)
+### Breakpoints (USWDS Standard) ❌
+~~- **Mobile**: < 640px (`mobile-lg`)~~
+~~- **Tablet**: 640px - 1023px (`tablet`)~~
+~~- **Desktop**: 1024px+ (`desktop`)~~
 
-### Grid Classes
+**ACTUAL BREAKPOINTS:**
+- **XLarge**: 1680px+
+- **Large**: 1280px - 1680px
+- **Medium**: 980px - 1280px
+- **Small**: 736px - 980px
+- **XSmall**: 480px - 736px
+- **Mobile**: < 480px
+
+### Grid Classes ❌
+~~```css~~
+~~.grid-container { max-width: 1200px; }~~
+~~.grid-row { display: flex; }~~
+~~.grid-col-12 { width: 100%; }~~
+~~.grid-col-6 { width: 50%; }~~
+~~```~~
+
+**ACTUAL GRID CLASSES:**
 ```css
-.grid-container { max-width: 1200px; }
-.grid-row { display: flex; }
-.grid-col-12 { width: 100%; }
-.grid-col-6 { width: 50%; }
+.row { display: flex; flex-wrap: wrap; }
+.col-1 { width: 8.33333%; }
+.col-6 { width: 50%; }
+.col-12 { width: 100%; }
+/* Responsive: .col-medium-6, .col-large-4, etc. */
 ```
 
 ## Accessibility Features

@@ -36,7 +36,7 @@
 - Content styling (colors, fonts, spacing within guidelines)
 
 ### What You CANNOT Modify
-- Core `/rmcc/assets/css/main.css` file
+- Core `/rmcc/assets/css/main.css` file *(Note: This is the custom RMCC CSS framework, not USWDS - see [RMCC-CSS-FRAMEWORK.md](./RMCC-CSS-FRAMEWORK.md))*
 - Shared JavaScript libraries and frameworks
 - Server-side configuration files
 - Security-related headers or scripts
@@ -55,11 +55,15 @@
 
 ## USFS-Specific Standards
 
-### Forest Service Design System (fs-fork-uswds)
-- Must follow USWDS (U.S. Web Design System) guidelines
-- Can override design tokens in custom `_variables.scss`
-- Core accessibility patterns must remain intact
-- Maintain consistent navigation and branding
+### Forest Service Design System ~~(fs-fork-uswds)~~ ❌
+> **CORRECTION:** The actual RMCC framework is not built on USWDS. See [RMCC-CSS-FRAMEWORK.md](./RMCC-CSS-FRAMEWORK.md) for accurate framework documentation.
+
+~~- Must follow USWDS (U.S. Web Design System) guidelines~~
+- **ACTUAL**: Must follow RMCC custom CSS framework patterns
+- ~~Can override design tokens in custom `_variables.scss`~~
+- **ACTUAL**: Can customize within RMCC framework constraints (see framework docs)
+- Core accessibility patterns must remain intact ✓
+- Maintain consistent navigation and branding ✓
 
 ### Emergency Management Requirements
 - **Offline Capability**: Consider limited connectivity scenarios
