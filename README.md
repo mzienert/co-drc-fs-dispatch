@@ -36,6 +36,18 @@ The `DispatchCenterTemplate` folder contains:
 
 🎨 **[CSS Framework Expectations](docs/CSS-EXPECTATIONS.md)** - USWDS structure, customization limits, styling guidelines
 
+## License
+
+This project uses **Creative Commons Zero (CC0 1.0 Universal** - "No Rights Reserved"
+
+### Why CC0?
+- **Federal Law**: U.S. government works are public domain by default (17 U.S.C. § 105)
+- **Policy Compliance**: Follows Code.gov guidance for federal open source projects
+- **Maximum Reusability**: No attribution requirements for other agencies or organizations
+- **International Compatibility**: Ensures public domain status worldwide
+
+CC0 is the standard license for federal projects including USWDS and other GSA initiatives.
+
 ## Important Notes
 
 ⚠️ **Mandatory Compliance**: All federal websites must meet Section 508/WCAG 2.0 Level AA standards
