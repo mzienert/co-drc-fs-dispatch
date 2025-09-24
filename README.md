@@ -36,7 +36,7 @@ The `DispatchCenterTemplate` folder contains:
 
 🎨 **[CSS Framework Expectations](docs/CSS-EXPECTATIONS.md)** - USWDS structure, customization limits, styling guidelines
 
-📋 **[Planning Rubric](docs/PLANNING-RUBRIC.md)** - Comprehensive guide for website planning sessions and content strategy
+📋 **[Planning Guide](docs/PLANNING-GUIDE.md)** - Comprehensive guide for website planning sessions and content strategy
 
 ## License
 
