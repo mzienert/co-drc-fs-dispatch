@@ -42,3 +42,5 @@ config.local.php
 *.zip
 *.tar.gz
 *.rar
+
+notes.txt
