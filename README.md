@@ -28,11 +28,13 @@ The `DispatchCenterTemplate` folder contains:
 
 ## Documentation
 
-📋 **[Requirements & Compliance](docs/requirements.md)** - Section 508 accessibility, CSS/JS restrictions, USFS standards
+📋 **[Requirements & Compliance](docs/REQUIREMENTS.md)** - Section 508 accessibility, CSS/JS restrictions, USFS standards
 
-🚀 **[Deployment Guide](docs/deployment.md)** - Server setup, SFTP process, troubleshooting
+🚀 **[Deployment Guide](docs/DEPLOYMENT.md)** - Server setup, SFTP process, troubleshooting
 
-🌐 **[Public Repository Guidelines](docs/public-repository.md)** - Open source policy, security considerations, publishing guidance
+🌐 **[Public Repository Guidelines](docs/PUBLIC-REPOSITORY.md)** - Open source policy, security considerations, publishing guidance
+
+🎨 **[CSS Framework Expectations](docs/CSS-EXPECTATIONS.md)** - USWDS structure, customization limits, styling guidelines
 
 ## Important Notes
 
