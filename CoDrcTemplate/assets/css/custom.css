@@ -29,6 +29,50 @@
    Header & Navigation
    ======================================== */
 
+/* Mobile-first header */
+#header {
+    display: block !important; /* Override RMCC default that hides header on mobile */
+    position: sticky;
+    top: 0;
+    background: #ffffff;
+    border-bottom: solid 2px rgba(210, 215, 217, 0.75);
+    z-index: 1000;
+    padding-top: 0; /* Override RMCC padding */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+}
+
+.header-title {
+    font-family: "Roboto Slab", serif;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #3d4449;
+}
+
+.hamburger-menu {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5em;
+}
+
+.hamburger-icon {
+    font-size: 1.5em;
+    color: #3d4449;
+}
+
+/* Hide hamburger on desktop (medium breakpoint 980px+) */
+@media screen and (min-width: 981px) {
+    .hamburger-menu {
+        display: none;
+    }
+}
+
 
 /* ========================================
    Custom Components
