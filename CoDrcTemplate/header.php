@@ -10,3 +10,10 @@
 		</button>
 	</div>
 </header>
+
+<!-- Mobile Sidebar Overlay -->
+<div id="mobile-sidebar" class="mobile-sidebar">
+	<div class="mobile-sidebar-content">
+		<p>Sidebar content goes here</p>
+	</div>
+</div>

@@ -24,6 +24,28 @@
    Mobile Sidebar Overlay
    ======================================== */
 
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Hidden off-screen by default */
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: #f5f6f7;
+    border-right: solid 2px rgba(210, 215, 217, 0.75);
+    z-index: 2000;
+    transition: left 0.3s ease-in-out;
+    overflow-y: auto;
+}
+
+.mobile-sidebar.active {
+    left: 0; /* Slide in when active */
+}
+
+.mobile-sidebar-content {
+    padding: 2em 1.5em;
+}
+
 
 /* ========================================
    Header & Navigation

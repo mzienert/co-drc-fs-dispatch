@@ -44,6 +44,12 @@
 
 		    <?php include('scripts.php'); ?>
 			<script>
+				// Mobile sidebar toggle
+				document.getElementById('menu-toggle').addEventListener('click', function() {
+					document.getElementById('mobile-sidebar').classList.toggle('active');
+				});
+			</script>
+			<script>
 				var headlines = [];
 				var current_headline = 0;
 				const req = new XMLHttpRequest();
