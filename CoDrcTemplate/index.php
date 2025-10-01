@@ -38,7 +38,7 @@
 								</section>
 						</div>
 					</div>
-            <?php /* include('sidebar.php'); */ ?> 
+           <!--  <?php include('sidebar.php'); ?>  -->
 
 			</div>
 

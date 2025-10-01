@@ -19,6 +19,10 @@
     width: 100%; /* Full width since sidebar is overlay only */
 }
 
+#sidebar {
+    display: none; /* Hide default sidebar, using mobile overlay instead */
+}
+
 
 /* ========================================
    Mobile Sidebar Overlay
@@ -57,7 +61,7 @@
     position: sticky;
     top: 0;
     background: #ffffff;
-    border-bottom: solid 2px rgba(210, 215, 217, 0.75);
+    border-bottom: solid 1px rgba(0,0,0, 0.99);
     z-index: 1000;
     padding-top: 0; /* Override RMCC padding */
 }
