@@ -5,8 +5,7 @@
 			<?php echo "$dispatch_center_name"; ?>
 		</div>
 		<button class="hamburger-menu" id="menu-toggle" aria-label="Toggle menu">
-			<!-- Placeholder for hamburger icon -->
-			<span class="hamburger-icon">☰</span>
+			<img src="assets/svg/menu.svg" alt="Menu" class="hamburger-icon" />
 		</button>
 	</div>
 </header>

@@ -1,5 +1,4 @@
 <?php
-	// EXAMPLE CONFIGURATION - Replace with your dispatch center's information
 	// DO NOT commit real contact information to public repositories
 
 	$dispatch_center_name = "CoDRC";

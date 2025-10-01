@@ -16,7 +16,6 @@
 		<!-- Wrapper -->
 		 <!--  temp adding rgba bg for debugging -->
 		<div id="wrapper" style="background-color: rgba(0,0,0,0.15);">
-			
 			<!-- Main -->
 			<div id="main" style="background-color: rgba(0,0,0,0.15);">
 			<?php include("header.php"); ?>
