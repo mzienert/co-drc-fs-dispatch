@@ -8,17 +8,22 @@
 		<title><?php echo "$dispatch_center_name ($dispatch_center_id)"; ?></title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="/rmcc/assets/css/main.css" />
+		<!-- temp linking to directly from rmcc css -->
+		<link rel="stylesheet" href="https://gacc.nifc.gov/rmcc/assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/custom.css" />
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
-		<div id="wrapper">
+		 <!--  temp adding rgba bg for debugging -->
+		<div id="wrapper" style="background-color: rgba(0,0,0,0.15);">
+			
 			<!-- Main -->
-			<div id="main">
-				<div class="inner">
-                    <?php include("header.php"); ?>
+			<div id="main" style="background-color: rgba(0,0,0,0.15);">
+			<?php include("header.php"); ?>
+				<div class="inner" style="background-color: rgba(0,0,0,0.15); height: 50vh;">
+                    
 							<!-- Content -->
-								<section style="padding-top: 0;">
+								<!-- <section style="padding-top: 0;">
 									<div style="min-height: 5em;display: none;" id="headlines">
 										<div class="box" style="margin-top: 1.5em;border-color: black;border-width: 3px;background-color: wheat;color: black;">
 											<p style="font-weight: bold; font-size: 20pt;"></p>
@@ -27,13 +32,13 @@
 									<header class="main">
 								    <h1><?php echo "$dispatch_center_name"; ?></h1>
 									</header>
-
+ -->
 									<!-- Enter home page content here -->
 
 								</section>
 						</div>
 					</div>
-            <?php include('sidebar.php'); ?>
+            <?php /* include('sidebar.php'); */ ?> 
 
 			</div>
 

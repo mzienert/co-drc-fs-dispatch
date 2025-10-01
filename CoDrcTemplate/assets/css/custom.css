@@ -1,0 +1,35 @@
+/**
+ * CoDRC Custom Styles
+ * Site-specific overrides and custom styles
+ * Built on top of RMCC CSS Framework
+ */
+
+/* ========================================
+   Layout Overrides
+   ======================================== */
+
+/* Remove sidebar on desktop - mobile only overlay */
+#wrapper {
+    flex-direction: row; /* Remove row-reverse since no sidebar on desktop */
+}
+
+#main {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 100%; /* Full width since sidebar is overlay only */
+}
+
+
+/* ========================================
+   Mobile Sidebar Overlay
+   ======================================== */
+
+
+/* ========================================
+   Header & Navigation
+   ======================================== */
+
+
+/* ========================================
+   Custom Components
+   ======================================== */
