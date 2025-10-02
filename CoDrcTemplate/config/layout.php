@@ -11,6 +11,9 @@ if (!$buffer_started) {
     error_log('Output buffering failed to start');
     // Set flag to skip buffering system
     define('BUFFER_FAILED', true);
+} else {
+    // Store our buffer level for verification later
+    define('LAYOUT_BUFFER_LEVEL', ob_get_level());
 }
 
 // Set default layout (can be overridden per page)
@@ -42,6 +45,19 @@ function component($name, $data = []) {
 function render_layout() {
     // Skip if buffering never started
     if (defined('BUFFER_FAILED') && BUFFER_FAILED) {
+        return;
+    }
+
+    // Check if we have an active buffer before trying to clean
+    $current_level = ob_get_level();
+    if ($current_level === 0) {
+        error_log('No output buffer active when render_layout was called');
+        return;
+    }
+
+    // Verify we're at the correct buffer level (our buffer, not a nested one)
+    if (defined('LAYOUT_BUFFER_LEVEL') && $current_level !== LAYOUT_BUFFER_LEVEL) {
+        error_log("Buffer level mismatch: expected " . LAYOUT_BUFFER_LEVEL . ", got $current_level");
         return;
     }
 
