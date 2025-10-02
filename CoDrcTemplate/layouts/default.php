@@ -7,6 +7,7 @@
 	<?php if ($meta_description): ?>
 	<meta name="description" content="<?php echo htmlspecialchars($meta_description); ?>" />
 	<?php endif; ?>
+	<link rel="canonical" href="<?php echo htmlspecialchars($canonical_url); ?>" />
 	<link rel="stylesheet" href="https://gacc.nifc.gov/rmcc/assets/css/main.css" />
 	<link rel="stylesheet" href="/assets/css/custom.css" />
 </head>

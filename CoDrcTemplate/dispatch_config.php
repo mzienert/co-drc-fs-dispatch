@@ -1,6 +1,8 @@
 <?php
 	// DO NOT commit real contact information to public repositories
 
+	$site_base_url = "https://gacc.nifc.gov";
+
 	$dispatch_center_name = "CoDRC";
 	$dispatch_center_id   = "ELDC";
 	$dispatch_center_24_hour_phone = "800-XXX-XXXX";
