@@ -13,6 +13,9 @@
 <!-- Mobile Sidebar Overlay -->
 <div id="mobile-sidebar" class="mobile-sidebar">
 	<div class="mobile-sidebar-content">
-		<p>Sidebar content goes here</p>
+		<?php
+		include_once('components/nav.php');
+		render_nav();
+		?>
 	</div>
 </div>
