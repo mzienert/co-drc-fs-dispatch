@@ -105,10 +105,36 @@
     display: block;
 }
 
+/* Desktop Navigation - hidden on mobile */
+.desktop-nav {
+    display: none;
+}
+
 /* Hide hamburger on desktop (medium breakpoint 980px+) */
 @media screen and (min-width: 981px) {
     .hamburger-menu {
         display: none;
+    }
+
+    .desktop-nav {
+        display: block;
+        margin-left: auto; /* Push nav to the right */
+    }
+
+    .desktop-nav .nav-list {
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        align-items: center;
+    }
+
+    .desktop-nav .nav-item {
+        border-bottom: none;
+    }
+
+    .desktop-nav .nav-link {
+        padding: 0.5em 1.5em;
+        font-size: 1.125em; /* Same as mobile for accessibility */
     }
 }
 
