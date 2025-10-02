@@ -8,7 +8,7 @@
 	<meta name="description" content="<?php echo htmlspecialchars($meta_description); ?>" />
 	<?php endif; ?>
 	<link rel="stylesheet" href="https://gacc.nifc.gov/rmcc/assets/css/main.css" />
-	<link rel="stylesheet" href="assets/css/custom.css" />
+	<link rel="stylesheet" href="/assets/css/custom.css" />
 </head>
 <body class="is-preload <?php echo htmlspecialchars($body_class); ?>">
 	<div id="wrapper">

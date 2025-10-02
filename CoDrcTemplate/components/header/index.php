@@ -10,7 +10,7 @@
 		</div>
 		<!-- Mobile Hamburger -->
 		<button class="hamburger-menu" id="menu-toggle" aria-label="Toggle menu">
-			<img src="assets/svg/menu.svg" alt="Menu" class="hamburger-icon" />
+			<img src="/assets/svg/menu.svg" alt="Menu" class="hamburger-icon" />
 		</button>
 	</div>
 </header>
