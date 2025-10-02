@@ -168,6 +168,10 @@
     padding: 0; /* Remove RMCC padding, handle in content-area */
 }
 
+#main > .inner > section {
+    padding: 2em 1em !important; /* Override RMCC mobile padding that removes horizontal padding */
+}
+
 
 /* ========================================
    Footer
@@ -177,15 +181,23 @@
 #footer {
     background-color: #f5f6f7;
     border-top: solid 2px rgba(210, 215, 217, 0.75);
-    padding: 6em 0;
+    padding: 2em 0 6em 0;
 }
 
 .footer-container {
     padding: 0 1.5em;
-    text-align: center;
+    text-align: left;
 }
 
-.footer-container p {
+.footer-title {
+    font-family: "Roboto Slab", serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #3d4449;
+    margin: 0 0 0.5em 0;
+}
+
+.footer-copyright {
     margin: 0;
     color: #7f888f;
     font-size: 0.9em;
