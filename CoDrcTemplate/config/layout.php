@@ -6,7 +6,12 @@
  */
 
 // Start output buffering to capture page content
-ob_start();
+$buffer_started = ob_start();
+if (!$buffer_started) {
+    error_log('Output buffering failed to start');
+    // Set flag to skip buffering system
+    define('BUFFER_FAILED', true);
+}
 
 // Set default layout (can be overridden per page)
 if (!isset($layout)) {
@@ -35,6 +40,11 @@ function component($name, $data = []) {
  * Captures buffered content and wraps it with layout
  */
 function render_layout() {
+    // Skip if buffering never started
+    if (defined('BUFFER_FAILED') && BUFFER_FAILED) {
+        return;
+    }
+
     global $layout, $page_title, $meta_description, $body_class;
     global $dispatch_center_name, $dispatch_center_id, $dispatch_center_email;
     global $dispatch_center_24_hour_phone, $dispatch_center_office_phone;
