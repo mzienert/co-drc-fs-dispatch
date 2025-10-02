@@ -154,6 +154,21 @@
 
 
 /* ========================================
+   Content Area
+   ======================================== */
+
+/* Mobile-first content area */
+.content-area {
+    padding: 2em 1em;
+}
+
+/* Override RMCC default padding on .inner for mobile */
+#main > .inner {
+    padding: 0; /* Remove RMCC padding, handle in content-area */
+}
+
+
+/* ========================================
    Custom Components
    ======================================== */
 
