@@ -53,6 +53,12 @@ function render_layout() {
     // Get the buffered page content
     $content = ob_get_clean();
 
+    // If buffer retrieval failed, log error and bail out
+    if ($content === false) {
+        error_log('Failed to retrieve output buffer content');
+        return;
+    }
+
     // Render the layout with content
     if (file_exists($layout)) {
         require $layout;
