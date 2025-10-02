@@ -2,7 +2,7 @@
 <header id="header">
 	<div class="header-container">
 		<div class="header-title">
-			<?php echo "$dispatch_center_name"; ?>
+			<?php global $dispatch_center_name; echo "$dispatch_center_name"; ?>
 		</div>
 		<!-- Desktop Navigation -->
 		<div class="desktop-nav">
