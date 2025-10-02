@@ -44,8 +44,24 @@
 		    <?php include('scripts.php'); ?>
 			<script>
 				// Mobile sidebar toggle
-				document.getElementById('menu-toggle').addEventListener('click', function() {
-					document.getElementById('mobile-sidebar').classList.toggle('active');
+				const sidebar = document.getElementById('mobile-sidebar');
+				const menuToggle = document.getElementById('menu-toggle');
+
+				menuToggle.addEventListener('click', function(e) {
+					e.stopPropagation();
+					sidebar.classList.toggle('active');
+				});
+
+				// Close sidebar when clicking outside
+				document.addEventListener('click', function(e) {
+					if (sidebar.classList.contains('active') && !sidebar.contains(e.target) && e.target !== menuToggle) {
+						sidebar.classList.remove('active');
+					}
+				});
+
+				// Prevent clicks inside sidebar from closing it
+				sidebar.addEventListener('click', function(e) {
+					e.stopPropagation();
 				});
 			</script>
 			<script>
