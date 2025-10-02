@@ -15,5 +15,7 @@ $meta_description = $meta_description ?? '';
 $body_class = $body_class ?? '';
 
 // Canonical URL - auto-generate from current request (can be overridden per page)
-$canonical_url = $canonical_url ?? $site_base_url . $_SERVER['REQUEST_URI'];
+if (!isset($canonical_url) && isset($site_base_url)) {
+    $canonical_url = $site_base_url . $_SERVER['REQUEST_URI'];
+}
 ?>
