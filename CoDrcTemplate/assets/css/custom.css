@@ -144,6 +144,11 @@
         font-size: 1.125em; /* Same as mobile for accessibility */
         display: flex;
         align-items: center; /* Vertically center text */
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    .desktop-nav .nav-link:hover {
+        background-color: rgba(210, 215, 217, 0.25);
     }
 }
 
