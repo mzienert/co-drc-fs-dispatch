@@ -117,24 +117,33 @@
     }
 
     .desktop-nav {
-        display: block;
+        display: flex;
         margin-left: auto; /* Push nav to the right */
+        height: 100%; /* Take full header height */
+    }
+
+    .desktop-nav .main-nav {
+        height: 100%;
     }
 
     .desktop-nav .nav-list {
         display: flex;
         flex-direction: row;
         gap: 0;
-        align-items: center;
+        align-items: stretch; /* Allow items to stretch full height */
+        height: 100%;
     }
 
     .desktop-nav .nav-item {
         border-bottom: none;
+        display: flex; /* Make item flex container */
     }
 
     .desktop-nav .nav-link {
-        padding: 0.5em 1.5em;
+        padding: 0 1.5em;
         font-size: 1.125em; /* Same as mobile for accessibility */
+        display: flex;
+        align-items: center; /* Vertically center text */
     }
 }
 
