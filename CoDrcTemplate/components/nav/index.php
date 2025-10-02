@@ -1,8 +1,15 @@
 <!-- Navigation Component -->
+<?php
+$navItems = [
+    ['label' => 'Home', 'url' => '/'],
+    ['label' => 'About', 'url' => '/about/'],
+    ['label' => 'Contact', 'url' => '/contact/']
+];
+?>
 <nav class="main-nav">
     <ul class="nav-list">
-        <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="/about/" class="nav-link">About</a></li>
-        <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
+        <?php foreach ($navItems as $item): ?>
+            <li class="nav-item"><a href="<?= htmlspecialchars($item['url']) ?>" class="nav-link"><?= htmlspecialchars($item['label']) ?></a></li>
+        <?php endforeach; ?>
     </ul>
 </nav>
