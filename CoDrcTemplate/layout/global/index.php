@@ -2,11 +2,7 @@
     <div id="main">
 		<?php include("components/header/index.php"); ?>
 		<div class="inner">
-			<section class="content-area">
-				<!-- Page content goes here -->
-				<h1>Welcome</h1>
-				<p>Content area placeholder</p>
-			</section>
+            <?php include("components/content-area/index.php"); ?>
 		</div>
 	</div>
 </div>
