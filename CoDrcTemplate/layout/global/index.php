@@ -1,6 +1,6 @@
 <div id="wrapper" style="background-color: rgba(0,0,0,0.15);">
     <div id="main" style="background-color: rgba(0,0,0,0.15);">
-        <!-- Main -->
+        <!-- Responsive Header-->
 		<?php include("components/header/index.php"); ?>
 		<div class="inner" style="background-color: rgba(0,0,0,0.15); height: 50vh;">    
 		<!-- Content -->
