@@ -14,7 +14,7 @@
 <div id="mobile-sidebar" class="mobile-sidebar">
 	<div class="mobile-sidebar-content">
 		<?php
-		include_once('components/nav.php');
+		include_once('components/nav/index.php');
 		render_nav();
 		?>
 	</div>
