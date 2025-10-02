@@ -13,7 +13,7 @@
 <body class="is-preload <?php echo htmlspecialchars($body_class); ?>">
 	<div id="wrapper">
 		<div id="main">
-			<?php include(__DIR__ . "/../components/header/index.php"); ?>
+			<?php component('header') ?>
 			<div class="inner">
 				<section class="content-area">
 					<?php echo $content; ?>
@@ -21,6 +21,8 @@
 			</div>
 		</div>
 	</div>
+
+	<?php component('footer'); ?>
 
 	<?php include(__DIR__ . '/../scripts.php'); ?>
 

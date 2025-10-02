@@ -11,6 +11,7 @@
 /* Remove sidebar on desktop - mobile only overlay */
 #wrapper {
     flex-direction: row; /* Remove row-reverse since no sidebar on desktop */
+    min-height: 80vh;
 }
 
 #main {
@@ -165,6 +166,29 @@
 /* Override RMCC default padding on .inner for mobile */
 #main > .inner {
     padding: 0; /* Remove RMCC padding, handle in content-area */
+}
+
+
+/* ========================================
+   Footer
+   ======================================== */
+
+/* Mobile-first footer */
+#footer {
+    background-color: #f5f6f7;
+    border-top: solid 2px rgba(210, 215, 217, 0.75);
+    padding: 6em 0;
+}
+
+.footer-container {
+    padding: 0 1.5em;
+    text-align: center;
+}
+
+.footer-container p {
+    margin: 0;
+    color: #7f888f;
+    font-size: 0.9em;
 }
 
 

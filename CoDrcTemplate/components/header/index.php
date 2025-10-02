@@ -6,10 +6,7 @@
 		</div>
 		<!-- Desktop Navigation -->
 		<div class="desktop-nav">
-			<?php
-			include_once('components/nav/index.php');
-			render_nav();
-			?>
+			<?php component('nav'); ?>
 		</div>
 		<!-- Mobile Hamburger -->
 		<button class="hamburger-menu" id="menu-toggle" aria-label="Toggle menu">
@@ -21,9 +18,6 @@
 <!-- Mobile Sidebar Overlay -->
 <div id="mobile-sidebar" class="mobile-sidebar">
 	<div class="mobile-sidebar-content">
-		<?php
-		include_once('components/nav/index.php');
-		render_nav();
-		?>
+		<?php component('nav'); ?>
 	</div>
 </div>
