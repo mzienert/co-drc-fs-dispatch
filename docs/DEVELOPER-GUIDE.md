@@ -101,3 +101,43 @@ Inside component files, access props via the `$props` array:
     <p><?= htmlspecialchars($props['subtitle'] ?? '') ?></p>
 </div>
 ```
+
+## SEO & Social Media
+
+### Open Graph Tags
+
+Open Graph tags are auto-generated from existing page variables for social media sharing (Facebook, LinkedIn, etc.):
+
+#### Available OG Variables
+- `$og_title` - Defaults to `$page_title`
+- `$og_description` - Defaults to `$meta_description`
+- `$og_url` - Defaults to `$canonical_url`
+- `$og_type` - Defaults to `'website'`
+- `$og_site_name` - Defaults to `$dispatch_center_name`
+- `$og_image` - Optional, set per page (TODO: add logo when available)
+
+#### Override Example
+```php
+<?php
+include_once("../dispatch_config.php");
+require_once('../config/layout.php');
+
+// Override OG tags for this page
+$og_title = "Custom Social Title";
+$og_description = "Custom description for social media";
+$og_image = "https://example.com/custom-image.jpg";
+?>
+```
+
+### Structured Data (Schema.org)
+
+Schema.org structured data is automatically included in every page for SEO. The system uses `GovernmentOrganization` type with data from `dispatch_config.php`:
+
+#### Included Fields
+- Organization name (`$dispatch_center_name`)
+- URL (`$site_base_url`)
+- Telephone (`$dispatch_center_24_hour_phone`)
+- Email (`$dispatch_center_email`)
+- Address (`$dispatch_center_address_line_1`, `$dispatch_center_address_line_2`)
+
+The structured data is output as JSON-LD in the `<head>` of every page and is automatically populated from your dispatch center configuration.

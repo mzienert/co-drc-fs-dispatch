@@ -25,6 +25,23 @@
 	<meta property="og:image" content="<?php echo htmlspecialchars($og_image); ?>" />
 	<?php endif; ?>
 
+	<!-- Structured Data (Schema.org) -->
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "GovernmentOrganization",
+	  "name": "<?= htmlspecialchars($dispatch_center_name, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>",
+	  "url": "<?= htmlspecialchars($site_base_url ?? '', JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>",
+	  "telephone": "<?= htmlspecialchars($dispatch_center_24_hour_phone, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>",
+	  "email": "<?= htmlspecialchars($dispatch_center_email, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>",
+	  "address": {
+	    "@type": "PostalAddress",
+	    "streetAddress": "<?= htmlspecialchars($dispatch_center_address_line_1, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>",
+	    "addressLocality": "<?= htmlspecialchars($dispatch_center_address_line_2, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>"
+	  }
+	}
+	</script>
+
 	<link rel="stylesheet" href="https://gacc.nifc.gov/rmcc/assets/css/main.css" />
 	<link rel="stylesheet" href="/assets/css/custom.css" />
 </head>
