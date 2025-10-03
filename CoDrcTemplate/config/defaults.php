@@ -18,4 +18,12 @@ $body_class = $body_class ?? '';
 if (!isset($canonical_url) && isset($site_base_url)) {
     $canonical_url = $site_base_url . $_SERVER['REQUEST_URI'];
 }
+
+// Open Graph defaults (can be overridden per page)
+$og_title = $og_title ?? $page_title;
+$og_description = $og_description ?? $meta_description;
+$og_url = $og_url ?? $canonical_url ?? '';
+$og_type = $og_type ?? 'website';
+$og_site_name = $og_site_name ?? $dispatch_center_name;
+// $og_image = $og_image ?? ''; // TODO: Add logo when available
 ?>
