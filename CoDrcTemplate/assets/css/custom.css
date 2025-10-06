@@ -207,6 +207,24 @@
    Custom Components
    ======================================== */
 
+/* Hero */
+#hero {
+    background-image: url('/assets/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    margin: -2em -1em 2em -1em;
+}
+
+.hero-container {
+    padding: 0 1.5em;
+}
+
+.hero-content {
+    /* Content styling will go here */
+}
+
 /* Navigation */
 .main-nav {
     width: 100%;
