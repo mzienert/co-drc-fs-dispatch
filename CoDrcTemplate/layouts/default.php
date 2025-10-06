@@ -5,24 +5,24 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<?php if ($meta_description): ?>
-	<meta name="description" content="<?php echo htmlspecialchars($meta_description); ?>" />
+		<meta name="description" content="<?php echo htmlspecialchars($meta_description); ?>" />
 	<?php endif; ?>
 	<?php if (isset($canonical_url)): ?>
-	<link rel="canonical" href="<?php echo htmlspecialchars($canonical_url); ?>" />
+		<link rel="canonical" href="<?php echo htmlspecialchars($canonical_url); ?>" />
 	<?php endif; ?>
 
 	<!-- Open Graph / Social Media -->
 	<meta property="og:title" content="<?php echo htmlspecialchars($og_title); ?>" />
 	<?php if ($og_description): ?>
-	<meta property="og:description" content="<?php echo htmlspecialchars($og_description); ?>" />
+		<meta property="og:description" content="<?php echo htmlspecialchars($og_description); ?>" />
 	<?php endif; ?>
 	<?php if ($og_url): ?>
-	<meta property="og:url" content="<?php echo htmlspecialchars($og_url); ?>" />
+		<meta property="og:url" content="<?php echo htmlspecialchars($og_url); ?>" />
 	<?php endif; ?>
 	<meta property="og:type" content="<?php echo htmlspecialchars($og_type); ?>" />
 	<meta property="og:site_name" content="<?php echo htmlspecialchars($og_site_name); ?>" />
 	<?php if (isset($og_image)): ?>
-	<meta property="og:image" content="<?php echo htmlspecialchars($og_image); ?>" />
+		<meta property="og:image" content="<?php echo htmlspecialchars($og_image); ?>" />
 	<?php endif; ?>
 
 	<!-- Structured Data (Schema.org) -->

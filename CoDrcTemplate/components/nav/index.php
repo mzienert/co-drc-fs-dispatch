@@ -1,10 +1,11 @@
 <!-- Navigation Component -->
 <?php
-$navItems = [
-    ['label' => 'Home', 'url' => '/'],
-    ['label' => 'About', 'url' => '/about/'],
-    ['label' => 'Contact', 'url' => '/contact/']
-];
+    $navItems = [
+        ['label' => 'Home', 'url' => '/'],
+        ['label' => 'About', 'url' => '/about/'],
+        ['label' => 'Testing', 'url' => '/testing/'],
+        ['label' => 'Contact', 'url' => '/contact/']
+    ];
 ?>
 <nav class="main-nav">
     <ul class="nav-list">

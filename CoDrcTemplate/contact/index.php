@@ -1,13 +1,13 @@
 <?php
-// Load config first
-include_once("../dispatch_config.php");
+    // Load config first
+    include_once("../dispatch_config.php");
 
-// Load layout system (React-like wrapper)
-require_once('../config/layout.php');
+    // Load layout system (React-like wrapper)
+    require_once('../config/layout.php');
 
-// Set page-specific variables
-$page_title = "Contact - $dispatch_center_name";
-$meta_description = "Learn more about $dispatch_center_name";
+    // Set page-specific variables
+    $page_title = "Contact - $dispatch_center_name";
+    $meta_description = "Learn more about $dispatch_center_name";
 ?>
 
 <h1>About <?php echo $dispatch_center_name; ?></h1>
