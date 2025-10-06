@@ -3,8 +3,8 @@
 
 	$site_base_url = "https://gacc.nifc.gov";
 
-	$dispatch_center_name = "CoDRC";
-	$dispatch_center_id   = "ELDC";
+	$dispatch_center_name = "Durango Interagency Dispatch Center";
+	$dispatch_center_id   = "CODRC";
 	$dispatch_center_24_hour_phone = "800-XXX-XXXX";
 	$dispatch_center_office_phone = "XXX-XXX-XXXX";
 	$dispatch_center_fax_number = "XXX-XXX-XXXX";

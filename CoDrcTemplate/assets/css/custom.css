@@ -62,7 +62,7 @@
     position: sticky;
     top: 0;
     background: #ffffff;
-    border-bottom: solid 1px rgba(0,0,0, 0.99);
+    border-bottom: none;
     z-index: 1000;
     padding: 0; /* Override RMCC padding */
     height: 99px; /* Fixed height */
@@ -179,8 +179,7 @@
 
 /* Mobile-first footer */
 #footer {
-    background-color: #f5f6f7;
-    border-top: solid 2px rgba(210, 215, 217, 0.75);
+    background-color: #000000;
     padding: 2em 0 6em 0;
 }
 
