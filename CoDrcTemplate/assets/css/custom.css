@@ -61,7 +61,7 @@
     display: block !important; /* Override RMCC default that hides header on mobile */
     position: sticky;
     top: 0;
-    background: #ffffff;
+    background: #000000;
     border-bottom: none;
     z-index: 1000;
     padding: 0; /* Override RMCC padding */
@@ -80,7 +80,7 @@
     font-family: "Roboto Slab", serif;
     font-size: 1.75em;
     font-weight: 700;
-    color: #3d4449;
+    color: #ffffff;
 }
 
 .hamburger-menu {
@@ -149,7 +149,8 @@
     }
 
     .desktop-nav .nav-link:hover {
-        background-color: rgba(210, 215, 217, 0.25);
+        background-color: #5A1A1A;
+        color: #FFFFFF;
     }
 }
 
@@ -192,13 +193,13 @@
     font-family: "Roboto Slab", serif;
     font-size: 1.5em;
     font-weight: 700;
-    color: #3d4449;
+    color: #ffffff;
     margin: 0 0 0.5em 0;
 }
 
 .footer-copyright {
     margin: 0;
-    color: #7f888f;
+    color: #ffffff;
     font-size: 0.9em;
 }
 
@@ -213,7 +214,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 400px;
+    min-height: 499px;
     margin: -2em -1em 2em -1em;
 }
 
@@ -247,7 +248,7 @@
 .nav-link {
     display: block;
     padding: 1em 1.5em;
-    color: #3d4449;
+    color: #ffffff;
     text-decoration: none;
     font-size: 1.125em; /* 18px at base 16px, good for accessibility */
     font-weight: 600;
@@ -255,5 +256,5 @@
 }
 
 .nav-link:hover {
-    color: #f56a6a;
+    color: #ffffff !important;
 }
