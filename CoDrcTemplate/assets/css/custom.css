@@ -148,9 +148,30 @@
         transition: background-color 0.2s ease-in-out;
     }
 
-    .desktop-nav .nav-link:hover {
+    .desktop-nav .nav-link:hover,
+    .desktop-nav .nav-item.has-dropdown:hover > .nav-link {
         background-color: #5A1A1A;
         color: #FFFFFF;
+    }
+
+    /* Desktop dropdown positioning */
+    .desktop-nav .nav-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #000000;
+        min-width: 200px;
+        text-align: right;
+        z-index: 1001;
+    }
+
+    .desktop-nav .nav-dropdown-item {
+        padding-left: 0;
+    }
+
+    .desktop-nav .nav-dropdown-link:hover {
+        background-color: #5A1A1A;
+        color: #FFFFFF !important;
     }
 }
 
@@ -257,4 +278,39 @@
 
 .nav-link:hover {
     color: #ffffff !important;
+}
+
+/* Dropdown styles */
+.nav-item.has-dropdown {
+    position: relative;
+}
+
+.nav-dropdown {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item.has-dropdown:hover .nav-dropdown {
+    display: block;
+}
+
+.nav-dropdown-item {
+    border-bottom: solid 1px rgba(210, 215, 217, 0.75);
+}
+
+.nav-dropdown-link {
+    display: block;
+    padding: 0.75em 1.5em;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.nav-dropdown-link:hover {
+    background-color: rgba(210, 215, 217, 0.25);
 }
