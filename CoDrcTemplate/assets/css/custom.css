@@ -339,12 +339,12 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
-    padding: 0 1.5em;
+    padding: 0 1.5em 0 1.5em;
 }
 
 .pl-item.expanded .pl-details {
     max-height: 500px;
-    padding: 0 1.5em 1.5em 1.5em;
+    padding: 0 1.5em 0 1.5em;
 }
 
 .pl-description {
@@ -352,7 +352,8 @@
     font-size: 0.9em;
     line-height: 1.6;
     color: #FFFFFF;
-    margin: 0 0 1em 0;
+    margin: 0;
+    padding-bottom: 1.5em;
 }
 
 .pl-source {
@@ -364,6 +365,7 @@
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: all 0.2s ease;
+    margin-bottom: 1.5em;
 }
 
 .pl-source:hover {
