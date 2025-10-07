@@ -10,7 +10,7 @@
                 ['label' => 'History', 'url' => '/about/history/']
             ]
         ],
-        ['label' => 'Testing', 'url' => '/testing/'],
+        ['label' => 'Testing', 'url' => '/testing/',],
         ['label' => 'Contact', 'url' => '/contact/']
     ];
 ?>
