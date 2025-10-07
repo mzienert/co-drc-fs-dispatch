@@ -232,7 +232,7 @@
 #hero {
     background-image: url('/assets/hero.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center bottom;
     background-repeat: no-repeat;
     min-height: 499px;
     margin: -2em -1em 2em -1em;
