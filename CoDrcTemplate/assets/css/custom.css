@@ -349,7 +349,7 @@
 
 .pl-description {
     font-family: "Open Sans", sans-serif;
-    font-size: 0.9em;
+    font-size: 1em;
     line-height: 1.6;
     color: #FFFFFF;
     margin: 0;
@@ -359,7 +359,7 @@
 .pl-source {
     display: inline-block;
     font-family: "Open Sans", sans-serif;
-    font-size: 0.85em;
+    font-size: 1em;
     font-weight: 600;
     color: #D4AF37 !important;
     text-decoration: none;
