@@ -254,6 +254,17 @@
     min-height: 499px;
 }
 
+.hero-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-logo {
+    max-width: 50%;
+    height: auto;
+}
+
 .hero-right {
     background-color: rgba(0, 0, 0, 0.75);
     display: flex;
@@ -269,8 +280,8 @@
 
 .preparedness-levels h2 {
     font-family: "Open Sans", sans-serif;
-    font-size: 1.75em;
-    font-weight: 400;
+    font-size: 2em;
+    font-weight: 600;
     margin: 0 0 1.5em 0;
     text-align: center;
     text-transform: uppercase;
