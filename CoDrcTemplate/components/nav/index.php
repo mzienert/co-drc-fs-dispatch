@@ -1,5 +1,7 @@
 <!-- Navigation Component -->
 <?php
+    require_once(__DIR__ . '/../../helpers/index.php');
+
     $navItems = [
         ['label' => 'Home', 'url' => '/'],
         [
@@ -13,21 +15,15 @@
         ['label' => 'Testing', 'url' => '/testing/'],
         ['label' => 'Contact', 'url' => '/contact/']
     ];
+
+    $helpers = Helpers::getInstance();
 ?>
 <nav class="main-nav">
     <ul class="nav-list">
         <?php foreach ($navItems as $item): ?>
             <li class="nav-item <?= isset($item['children']) ? 'has-dropdown' : '' ?>">
                 <a href="<?= htmlspecialchars($item['url']) ?>" class="nav-link"><?= htmlspecialchars($item['label']) ?></a>
-                <?php if (isset($item['children'])): ?>
-                    <ul class="nav-dropdown">
-                        <?php foreach ($item['children'] as $child): ?>
-                            <li class="nav-dropdown-item">
-                                <a href="<?= htmlspecialchars($child['url']) ?>" class="nav-dropdown-link"><?= htmlspecialchars($child['label']) ?></a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                <?php endif; ?>
+                <?= isset($item['children']) ? $helpers->renderDropdown($item['children']) : '' ?>
             </li>
         <?php endforeach; ?>
     </ul>
