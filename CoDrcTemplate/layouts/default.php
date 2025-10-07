@@ -85,6 +85,21 @@
 		sidebar.addEventListener('click', function(e) {
 			e.stopPropagation();
 		});
+
+		// Preparedness level expand/collapse
+		document.querySelectorAll('[data-expandable]').forEach(item => {
+			const header = item.querySelector('.pl-header');
+			header.addEventListener('click', function() {
+				// Close other items
+				document.querySelectorAll('[data-expandable].expanded').forEach(other => {
+					if (other !== item) {
+						other.classList.remove('expanded');
+					}
+				});
+				// Toggle current item
+				item.classList.toggle('expanded');
+			});
+		});
 	</script>
 </body>
 </html>

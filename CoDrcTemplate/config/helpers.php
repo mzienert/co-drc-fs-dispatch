@@ -33,13 +33,13 @@ function renderDropdown($children) {
 
 /**
  * Get preparedness levels from JSON file
- * Returns array with national, RMA, and local preparedness levels
+ * Returns array with national, RMA, and local preparedness levels with descriptions and sources
  */
 function getPreparednessLevels() {
     $levels = [
-        'national' => 'PL N/A',
-        'rma' => 'PL N/A',
-        'local' => 'PL N/A'
+        'national' => ['level' => 'N/A', 'description' => '', 'source' => ''],
+        'rma' => ['level' => 'N/A', 'description' => '', 'source' => ''],
+        'local' => ['level' => 'N/A', 'description' => '', 'source' => '']
     ];
 
     $pl_file = __DIR__ . '/../pl.json';
@@ -48,9 +48,11 @@ function getPreparednessLevels() {
         $data = json_decode($json_content, true);
 
         if ($data && is_array($data)) {
-            if (isset($data['national'])) $levels['national'] = $data['national'];
-            if (isset($data['rma'])) $levels['rma'] = $data['rma'];
-            if (isset($data['local'])) $levels['local'] = $data['local'];
+            foreach (['national', 'rma', 'local'] as $key) {
+                if (isset($data[$key]) && is_array($data[$key])) {
+                    $levels[$key] = $data[$key];
+                }
+            }
         }
     }
 
