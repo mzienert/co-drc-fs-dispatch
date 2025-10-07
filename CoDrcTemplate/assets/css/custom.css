@@ -142,7 +142,7 @@
 
     .desktop-nav .nav-link {
         padding: 0 1.5em;
-        font-size: 1.125em; /* Same as mobile for accessibility */
+        font-size: 1.25em;
         display: flex;
         align-items: center; /* Vertically center text */
         transition: background-color 0.2s ease-in-out;
@@ -181,7 +181,7 @@
 /* Mobile-first footer */
 #footer {
     background-color: #000000;
-    padding: 2em 0 6em 0;
+    padding: 2em 0 2em 0;
 }
 
 .footer-container {
@@ -189,18 +189,17 @@
     text-align: left;
 }
 
-.footer-title {
-    font-family: "Roboto Slab", serif;
-    font-size: 1.5em;
-    font-weight: 700;
-    color: #ffffff;
-    margin: 0 0 0.5em 0;
+.footer-logo {
+    height: 150px;
+    margin: 0 0 auto 0;
+    padding-left: 0.5em;
 }
 
 .footer-copyright {
     margin: 0;
     color: #ffffff;
     font-size: 0.9em;
+    padding-left: 0.5em;
 }
 
 
@@ -250,8 +249,9 @@
     padding: 1em 1.5em;
     color: #ffffff;
     text-decoration: none;
-    font-size: 1.125em; /* 18px at base 16px, good for accessibility */
-    font-weight: 600;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.25em; /* 20px at base 16px */
+    font-weight: 400;
     transition: color 0.2s ease-in-out;
 }
 
