@@ -15,4 +15,19 @@ function component($name, $props = []) {
         include $file;
     }
 }
+
+/**
+ * Render navigation dropdown menu
+ * Usage: renderDropdown($children)
+ */
+function renderDropdown($children) {
+    $html = '<ul class="nav-dropdown">';
+    foreach ($children as $child) {
+        $html .= '<li class="nav-dropdown-item">';
+        $html .= '<a href="' . htmlspecialchars($child['url']) . '" class="nav-dropdown-link">' . htmlspecialchars($child['label']) . '</a>';
+        $html .= '</li>';
+    }
+    $html .= '</ul>';
+    return $html;
+}
 ?>

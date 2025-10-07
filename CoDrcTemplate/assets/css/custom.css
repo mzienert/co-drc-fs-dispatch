@@ -239,11 +239,23 @@
 }
 
 .hero-container {
-    padding: 0 1.5em;
+    padding: 0;
+    height: 100%;
 }
 
-.hero-content {
-    /* Content styling will go here */
+.hero-container .row {
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.hero-left,
+.hero-right {
+    min-height: 499px;
+}
+
+.hero-right {
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 /* Navigation */
