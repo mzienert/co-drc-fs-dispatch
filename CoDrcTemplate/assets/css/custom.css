@@ -293,6 +293,27 @@
 
 .pl-header {
     padding: 1.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pl-header-content {
+    flex: 1;
+}
+
+.pl-expand-icon {
+    width: 24px;
+    height: 24px;
+    color: #D4AF37;
+    fill: #D4AF37;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 1em;
+}
+
+.pl-item.expanded .pl-expand-icon {
+    transform: rotate(45deg);
 }
 
 .pl-label {
@@ -339,14 +360,15 @@
     font-family: "Open Sans", sans-serif;
     font-size: 0.85em;
     font-weight: 600;
-    color: #D4AF37;
+    color: #D4AF37 !important;
     text-decoration: none;
     border-bottom: 1px solid transparent;
-    transition: border-color 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .pl-source:hover {
-    border-bottom-color: #D4AF37;
+    color: #FFFFFF !important;
+    border-bottom-color: #FFFFFF;
 }
 
 /* Navigation */

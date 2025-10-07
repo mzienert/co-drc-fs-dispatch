@@ -15,8 +15,11 @@
 					<!-- National -->
 					<div class="pl-item" data-expandable>
 						<div class="pl-header">
-							<h3 class="pl-label">National</h3>
-							<p class="pl-value">PL <?= htmlspecialchars($preparednessLevels['national']['level']) ?></p>
+							<div class="pl-header-content">
+								<h3 class="pl-label">National</h3>
+								<p class="pl-value">PL <?= htmlspecialchars($preparednessLevels['national']['level']) ?></p>
+							</div>
+							<img src="/assets/svg/plus.svg" alt="Expand" class="pl-expand-icon" />
 						</div>
 						<div class="pl-details">
 							<p class="pl-description"><?= htmlspecialchars($preparednessLevels['national']['description']) ?></p>
@@ -29,8 +32,11 @@
 					<!-- RMA -->
 					<div class="pl-item" data-expandable>
 						<div class="pl-header">
-							<h3 class="pl-label">RMA</h3>
-							<p class="pl-value">PL <?= htmlspecialchars($preparednessLevels['rma']['level']) ?></p>
+							<div class="pl-header-content">
+								<h3 class="pl-label">RMA</h3>
+								<p class="pl-value">PL <?= htmlspecialchars($preparednessLevels['rma']['level']) ?></p>
+							</div>
+							<img src="/assets/svg/plus.svg" alt="Expand" class="pl-expand-icon" />
 						</div>
 						<div class="pl-details">
 							<p class="pl-description"><?= htmlspecialchars($preparednessLevels['rma']['description']) ?></p>
@@ -43,8 +49,11 @@
 					<!-- Local -->
 					<div class="pl-item" data-expandable>
 						<div class="pl-header">
-							<h3 class="pl-label">Local</h3>
-							<p class="pl-value">PL <?= htmlspecialchars($preparednessLevels['local']['level']) ?></p>
+							<div class="pl-header-content">
+								<h3 class="pl-label">Local</h3>
+								<p class="pl-value">PL <?= htmlspecialchars($preparednessLevels['local']['level']) ?></p>
+							</div>
+							<img src="/assets/svg/plus.svg" alt="Expand" class="pl-expand-icon" />
 						</div>
 						<div class="pl-details">
 							<p class="pl-description"><?= htmlspecialchars($preparednessLevels['local']['description']) ?></p>
