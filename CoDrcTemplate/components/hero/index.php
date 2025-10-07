@@ -10,18 +10,18 @@
 			</div>
 			<div class="col-5 hero-right">
 				<div class="preparedness-levels">
-					<h2>Current Status</h2>
+					<h2>Preparedness Levels</h2>
 					<div class="pl-item">
-						<span class="pl-label">National:</span>
-						<span class="pl-value"><?= htmlspecialchars($preparednessLevels['national']) ?></span>
+						<h3 class="pl-label">National</h3>
+						<p class="pl-value">PL <?= htmlspecialchars($preparednessLevels['national']) ?></p>
 					</div>
 					<div class="pl-item">
-						<span class="pl-label">RMA:</span>
-						<span class="pl-value"><?= htmlspecialchars($preparednessLevels['rma']) ?></span>
+						<h3 class="pl-label">RMA</h3>
+						<p class="pl-value">PL <?= htmlspecialchars($preparednessLevels['rma']) ?></p>
 					</div>
 					<div class="pl-item">
-						<span class="pl-label">Local:</span>
-						<span class="pl-value"><?= htmlspecialchars($preparednessLevels['local']) ?></span>
+						<h3 class="pl-label">Local</h3>
+						<p class="pl-value">PL <?= htmlspecialchars($preparednessLevels['local']) ?></p>
 					</div>
 				</div>
 			</div>

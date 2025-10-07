@@ -32,7 +32,7 @@ function renderDropdown($children) {
 }
 
 /**
- * Get preparedness levels from text file
+ * Get preparedness levels from JSON file
  * Returns array with national, RMA, and local preparedness levels
  */
 function getPreparednessLevels() {
@@ -42,17 +42,15 @@ function getPreparednessLevels() {
         'local' => 'PL N/A'
     ];
 
-    // Read national and RMA levels
-    $pl_file = __DIR__ . '/../pl.txt';
+    $pl_file = __DIR__ . '/../pl.json';
     if (file_exists($pl_file)) {
-        $pl_content = file_get_contents($pl_file);
-        if (preg_match('/Preparedness Level[\n\s]+National\s+(PL \d)[\n\s]+RMA\s+(PL \d)/', $pl_content, $matches)) {
-            $levels['national'] = $matches[1];
-            $levels['rma'] = $matches[2];
-        }
-        // Read local level
-        if (preg_match('/Preparedness Level[\n\s]+Local\s+(PL \d)/', $pl_content, $matches)) {
-            $levels['local'] = $matches[1];
+        $json_content = file_get_contents($pl_file);
+        $data = json_decode($json_content, true);
+
+        if ($data && is_array($data)) {
+            if (isset($data['national'])) $levels['national'] = $data['national'];
+            if (isset($data['rma'])) $levels['rma'] = $data['rma'];
+            if (isset($data['local'])) $levels['local'] = $data['local'];
         }
     }
 
