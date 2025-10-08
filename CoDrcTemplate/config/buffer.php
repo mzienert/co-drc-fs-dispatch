@@ -15,8 +15,8 @@ if (!$buffer_started) {
     define('LAYOUT_BUFFER_LEVEL', ob_get_level());
 }
 
-// Create render_layout closure that captures layoutData and page metadata
-$render_layout = function() use (&$layoutData, &$layout, &$page_title, &$meta_description, &$body_class, &$canonical_url, &$og_title, &$og_description, &$og_url, &$og_type, &$og_site_name, &$og_image) {
+// Create render_layout closure that captures page context
+$render_layout = function() use ($pageContext) {
     // Skip if buffering never started
     if (defined('BUFFER_FAILED') && BUFFER_FAILED) {
         return;
@@ -36,13 +36,28 @@ $render_layout = function() use (&$layoutData, &$layout, &$page_title, &$meta_de
     }
 
     // Get the buffered page content
-    $content = ob_get_clean();
+    $pageContext->content = ob_get_clean();
 
     // If buffer retrieval failed, log error and bail out
-    if ($content === false) {
+    if ($pageContext->content === false) {
         error_log('Failed to retrieve output buffer content');
         return;
     }
+
+    // Extract variables for layout template
+    $layoutData = $pageContext->layoutData;
+    $layout = $pageContext->layout;
+    $page_title = $pageContext->page_title;
+    $meta_description = $pageContext->meta_description;
+    $body_class = $pageContext->body_class;
+    $canonical_url = $pageContext->canonical_url;
+    $og_title = $pageContext->og_title;
+    $og_description = $pageContext->og_description;
+    $og_url = $pageContext->og_url;
+    $og_type = $pageContext->og_type;
+    $og_site_name = $pageContext->og_site_name;
+    $og_image = $pageContext->og_image;
+    $content = $pageContext->content;
 
     // Render the layout with content
     if (file_exists($layout)) {

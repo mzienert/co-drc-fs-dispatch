@@ -10,6 +10,7 @@ require_once __DIR__ . '/error-handler.php';
 
 // Load helper functions
 require_once __DIR__ . '/../helpers/index.php';
+require_once __DIR__ . '/../helpers/PageContext.php';
 
 // Load and prepare application data
 $layoutData = [
@@ -17,7 +18,10 @@ $layoutData = [
     'navItems' => require_once __DIR__ . '/../data/nav.php'
 ];
 
-// Start output buffering system (buffer.php uses $layoutData via closure)
+// Create page context to hold all page data
+$pageContext = new \App\PageContext($layoutData);
+
+// Start output buffering system (buffer.php uses $pageContext via closure)
 require_once __DIR__ . '/buffer.php';
 
 // Set default variables
