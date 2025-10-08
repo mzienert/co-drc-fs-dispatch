@@ -211,9 +211,13 @@
     text-align: left;
 }
 
+.footer-left {
+    margin-bottom: 2em;
+}
+
 .footer-logo {
     height: 150px;
-    margin: 0 0 auto 0;
+    margin: 0 0 1em 0;
     padding-left: 0.5em;
 }
 
@@ -224,6 +228,71 @@
     padding-left: 0.5em;
 }
 
+/* Footer Navigation */
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.footer-nav-column {
+    flex: 1;
+}
+
+.footer-nav-title {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 0 0 0.75em 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer-nav-title a {
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.footer-nav-title a:hover {
+    color: #D4AF37;
+}
+
+.footer-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav-item {
+    margin-bottom: 0.5em;
+}
+
+.footer-nav-item a {
+    color: #9fa3a6;
+    text-decoration: none;
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.95em;
+    border-bottom: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer-nav-item a:hover {
+    color: #ffffff;
+}
+
+/* Desktop footer layout */
+@media screen and (min-width: 981px) {
+    .footer-left {
+        margin-bottom: 0;
+    }
+
+    .footer-nav {
+        flex-direction: row;
+        gap: 3em;
+    }
+}
+
 
 /* ========================================
    Custom Components
@@ -231,7 +300,7 @@
 
 /* Hero */
 #hero {
-    background-image: url('/assets/hero.jpg');
+    background-image: url('/assets/images/hero.jpg');
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;

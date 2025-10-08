@@ -6,7 +6,7 @@
 	<div class="hero-container">
 		<div class="row">
 			<div class="col-7 hero-left">
-				<img src="/assets/logo.png" alt="<?php global $dispatch_center_name; echo "$dispatch_center_name"; ?>" class="hero-logo" />
+				<img src="/assets/images/logo.png" alt="<?php global $dispatch_center_name; echo "$dispatch_center_name"; ?>" class="hero-logo" />
 			</div>
 			<div class="col-5 hero-right">
 				<div class="preparedness-levels">
