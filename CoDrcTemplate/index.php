@@ -1,11 +1,11 @@
 <?php
     // Load layout system (React-like wrapper)
-    $layoutData = require_once('config/layout.php');
-    $dispatchInfo = $layoutData['dispatchInfo'];
+    $pageContext = require_once('config/layout.php');
+    $dispatchInfo = $pageContext->layoutData['dispatchInfo'];
 
     // Set page-specific variables
-    $page_title = "{$dispatchInfo['name']} ({$dispatchInfo['id']})";
-    $meta_description = "Welcome to {$dispatchInfo['name']}";
+    $pageContext->page_title = "{$dispatchInfo['name']} ({$dispatchInfo['id']})";
+    $pageContext->meta_description = "Welcome to {$dispatchInfo['name']}";
 ?>
 
 <?php \App\Helpers::component('hero', ['dispatchInfo' => $dispatchInfo]); ?>

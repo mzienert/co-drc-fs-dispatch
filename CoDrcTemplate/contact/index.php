@@ -1,11 +1,11 @@
 <?php
     // Load layout system (React-like wrapper)
-    $layoutData = require_once('../config/layout.php');
-    $dispatchInfo = $layoutData['dispatchInfo'];
+    $pageContext = require_once('../config/layout.php');
+    $dispatchInfo = $pageContext->layoutData['dispatchInfo'];
 
     // Set page-specific variables
-    $page_title = "Contact - {$dispatchInfo['name']}";
-    $meta_description = "Contact {$dispatchInfo['name']}";
+    $pageContext->page_title = "Contact - {$dispatchInfo['name']}";
+    $pageContext->meta_description = "Contact {$dispatchInfo['name']}";
 ?>
 
 <h1>Contact <?= htmlspecialchars($dispatchInfo['name']) ?></h1>

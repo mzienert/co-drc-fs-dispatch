@@ -1,11 +1,11 @@
 <?php
     // Load layout system (React-like wrapper)
-    $layoutData = require_once('../config/layout.php');
-    $dispatchInfo = $layoutData['dispatchInfo'];
+    $pageContext = require_once('../config/layout.php');
+    $dispatchInfo = $pageContext->layoutData['dispatchInfo'];
 
     // Set page-specific variables
-    $page_title = "About - {$dispatchInfo['name']}";
-    $meta_description = "Learn more about {$dispatchInfo['name']}";
+    $pageContext->page_title = "About - {$dispatchInfo['name']}";
+    $pageContext->meta_description = "Learn more about {$dispatchInfo['name']}";
 ?>
 
 <div style="background-color: #eee">

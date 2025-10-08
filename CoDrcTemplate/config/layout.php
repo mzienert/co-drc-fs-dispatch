@@ -27,6 +27,6 @@ require_once __DIR__ . '/buffer.php';
 // Set default variables
 require_once __DIR__ . '/defaults.php';
 
-// Return data for template use
-return $layoutData;
+// Return page context for page files to use
+return $pageContext;
 ?>
