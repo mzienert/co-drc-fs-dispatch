@@ -1,4 +1,6 @@
 <?php
+namespace App;
+
 /**
  * Helpers Class
  * Utility functions for the application
@@ -6,7 +8,7 @@
 class Helpers {
     /**
      * Helper function to include reusable components (like React components)
-     * Usage: Helpers::component('nav'); or Helpers::component('hero', ['title' => 'Welcome']);
+     * Usage: \App\Helpers::component('nav'); or \App\Helpers::component('hero', ['title' => 'Welcome']);
      * Inside components, access props via $props array (e.g., <?= $props['title'] ?>)
      */
     public static function component($name, $props = []) {
@@ -18,7 +20,7 @@ class Helpers {
 
     /**
      * Render navigation dropdown menu
-     * Usage: Helpers::renderDropdown($children)
+     * Usage: \App\Helpers::renderDropdown($children)
      */
     public static function renderDropdown($children) {
         $html = '<ul class="nav-dropdown">';
@@ -33,7 +35,7 @@ class Helpers {
 
     /**
      * Render footer navigation children list
-     * Usage: Helpers::renderFooterNavList($children)
+     * Usage: \App\Helpers::renderFooterNavList($children)
      */
     public static function renderFooterNavList($children) {
         $html = '<ul class="footer-nav-list">';

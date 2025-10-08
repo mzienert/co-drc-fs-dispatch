@@ -27,7 +27,7 @@
 							<h3 class="footer-nav-title">
 								<a href="<?= htmlspecialchars($item['url']) ?>"><?= htmlspecialchars($item['label']) ?></a>
 							</h3>
-							<?= isset($item['children']) ? Helpers::renderFooterNavList($item['children']) : '' ?>
+							<?= isset($item['children']) ? \App\Helpers::renderFooterNavList($item['children']) : '' ?>
 						</div>
 					<?php endforeach; ?>
 				</nav>

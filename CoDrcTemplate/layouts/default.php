@@ -50,8 +50,9 @@
 	</head>
 	<body class="is-preload <?php echo htmlspecialchars($body_class); ?>">
 		<?php
-		global $dispatchInfo;
-		$navItems = require_once __DIR__ . '/../data/nav.php';
+		global $layoutData;
+		$dispatchInfo = $layoutData['dispatchInfo'];
+		$navItems = $layoutData['navItems'];
 
 		// Prepare footer contact data
 		$footerContact = [
@@ -65,7 +66,7 @@
 		?>
 		<div id="wrapper">
 			<div id="main">
-				<?php Helpers::component('header', ['navItems' => $navItems, 'dispatchInfo' => $dispatchInfo]) ?>
+				<?php \App\Helpers::component('header', ['navItems' => $navItems, 'dispatchInfo' => $dispatchInfo]) ?>
 				<div class="inner">
 					<section class="content-area">
 						<?php echo $content; ?>
@@ -74,7 +75,7 @@
 			</div>
 		</div>
 
-		<?php Helpers::component('footer', ['navItems' => $navItems, 'contact' => $footerContact]); ?>
+		<?php \App\Helpers::component('footer', ['navItems' => $navItems, 'contact' => $footerContact]); ?>
 
 		<?php include(__DIR__ . '/../scripts.php'); ?>
 

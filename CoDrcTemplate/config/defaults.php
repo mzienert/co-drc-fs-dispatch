@@ -4,6 +4,9 @@
  * Set default values for page-level variables
  */
 
+// Get layout data from parent scope
+$dispatchInfo = $layoutData['dispatchInfo'];
+
 // Set default layout (can be overridden per page)
 if (!isset($layout)) {
     $layout = __DIR__ . '/../layouts/default.php';

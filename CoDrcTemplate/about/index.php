@@ -1,6 +1,7 @@
 <?php
     // Load layout system (React-like wrapper)
-    require_once('../config/layout.php');
+    $layoutData = require_once('../config/layout.php');
+    $dispatchInfo = $layoutData['dispatchInfo'];
 
     // Set page-specific variables
     $page_title = "About - {$dispatchInfo['name']}";

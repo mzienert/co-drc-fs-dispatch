@@ -15,11 +15,8 @@ if (!$buffer_started) {
     define('LAYOUT_BUFFER_LEVEL', ob_get_level());
 }
 
-/**
- * Render layout on shutdown
- * Captures buffered content and wraps it with layout
- */
-function render_layout() {
+// Create render_layout closure that captures layoutData
+$render_layout = function() use (&$layoutData) {
     // Skip if buffering never started
     if (defined('BUFFER_FAILED') && BUFFER_FAILED) {
         return;
@@ -40,7 +37,6 @@ function render_layout() {
 
     global $layout, $page_title, $meta_description, $body_class, $canonical_url;
     global $og_title, $og_description, $og_url, $og_type, $og_site_name, $og_image;
-    global $dispatchInfo;
 
     // Get the buffered page content
     $content = ob_get_clean();
@@ -57,8 +53,8 @@ function render_layout() {
     } else {
         echo $content;
     }
-}
+};
 
 // Register shutdown function to automatically apply layout
-register_shutdown_function('render_layout');
+register_shutdown_function($render_layout);
 ?>
