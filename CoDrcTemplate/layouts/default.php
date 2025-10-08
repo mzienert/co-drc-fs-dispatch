@@ -49,10 +49,13 @@
 		<link rel="stylesheet" href="/assets/css/custom.css" />
 	</head>
 	<body class="is-preload <?php echo htmlspecialchars($body_class); ?>">
-		<?php $navItems = require_once __DIR__ . '/../data/nav.php'; ?>
+		<?php
+		require_once __DIR__ . '/../helpers/index.php';
+		$navItems = require_once __DIR__ . '/../data/nav.php';
+		?>
 		<div id="wrapper">
 			<div id="main">
-				<?php component('header', ['navItems' => $navItems]) ?>
+				<?php Helpers::component('header', ['navItems' => $navItems]) ?>
 				<div class="inner">
 					<section class="content-area">
 						<?php echo $content; ?>
@@ -61,7 +64,7 @@
 			</div>
 		</div>
 
-		<?php component('footer', ['navItems' => $navItems]); ?>
+		<?php Helpers::component('footer', ['navItems' => $navItems]); ?>
 
 		<?php include(__DIR__ . '/../scripts.php'); ?>
 

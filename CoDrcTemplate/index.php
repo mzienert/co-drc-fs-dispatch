@@ -10,7 +10,7 @@
     $meta_description = "Welcome to $dispatch_center_name";
 ?>
 
-<?php component('hero'); ?>
+<?php Helpers::component('hero'); ?>
 
 <h1>Welcome to <?php echo $dispatch_center_name; ?></h1>
 <p>This is the home page content. Notice how clean this is - just content, no boilerplate!</p>

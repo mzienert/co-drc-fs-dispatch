@@ -1,6 +1,6 @@
 <!-- Hero Component -->
 <?php
-	$preparednessLevels = getPreparednessLevels();
+	$preparednessLevels = Helpers::getPreparednessLevels();
 ?>
 <section id="hero">
 	<div class="hero-container">

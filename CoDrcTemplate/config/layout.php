@@ -8,7 +8,7 @@
 require_once __DIR__ . '/error-handler.php';
 
 // Load helper functions
-require_once __DIR__ . '/helpers.php';
+require_once __DIR__ . '/../helpers/index.php';
 
 // Start output buffering system
 require_once __DIR__ . '/buffer.php';
