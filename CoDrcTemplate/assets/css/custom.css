@@ -240,6 +240,10 @@
     line-height: 1.5;
 }
 
+.footer-contact-item strong {
+    color: #ffffff;
+}
+
 .footer-contact-item a {
     color: #ffffff;
     text-decoration: none;
