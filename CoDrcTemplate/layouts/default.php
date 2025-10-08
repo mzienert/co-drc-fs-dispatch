@@ -52,6 +52,17 @@
 		<?php
 		require_once __DIR__ . '/../helpers/index.php';
 		$navItems = require_once __DIR__ . '/../data/nav.php';
+
+		// Prepare footer contact data
+		global $dispatch_center_id, $dispatch_center_24_hour_phone, $dispatch_center_office_phone, $dispatch_center_email, $dispatch_center_address_line_1, $dispatch_center_address_line_2;
+		$footerContact = [
+			'centerId' => htmlspecialchars($dispatch_center_id),
+			'phone24' => htmlspecialchars($dispatch_center_24_hour_phone),
+			'phoneOffice' => htmlspecialchars($dispatch_center_office_phone),
+			'email' => htmlspecialchars($dispatch_center_email),
+			'address1' => htmlspecialchars($dispatch_center_address_line_1),
+			'address2' => htmlspecialchars($dispatch_center_address_line_2)
+		];
 		?>
 		<div id="wrapper">
 			<div id="main">
@@ -64,7 +75,7 @@
 			</div>
 		</div>
 
-		<?php Helpers::component('footer', ['navItems' => $navItems]); ?>
+		<?php Helpers::component('footer', ['navItems' => $navItems, 'contact' => $footerContact]); ?>
 
 		<?php include(__DIR__ . '/../scripts.php'); ?>
 
