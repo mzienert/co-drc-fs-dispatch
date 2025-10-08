@@ -40,9 +40,7 @@ function render_layout() {
 
     global $layout, $page_title, $meta_description, $body_class, $canonical_url;
     global $og_title, $og_description, $og_url, $og_type, $og_site_name, $og_image;
-    global $site_base_url, $dispatch_center_name, $dispatch_center_id, $dispatch_center_email;
-    global $dispatch_center_24_hour_phone, $dispatch_center_office_phone;
-    global $dispatch_center_fax_number, $dispatch_center_address_line_1, $dispatch_center_address_line_2;
+    global $dispatchInfo;
 
     // Get the buffered page content
     $content = ob_get_clean();
