@@ -77,10 +77,11 @@
 }
 
 .header-title {
-    font-family: "Roboto Slab", serif;
+    font-family: "Roboto", sans-serif;
     font-size: 1.75em;
     font-weight: 700;
     color: #ffffff;
+    padding-left: 0.5em;
 }
 
 .hamburger-menu {

@@ -6,7 +6,7 @@
 		</div>
 		<!-- Desktop Navigation -->
 		<div class="desktop-nav">
-			<?php component('nav'); ?>
+			<?php component('nav', ['navItems' => $props['navItems']]); ?>
 		</div>
 		<!-- Mobile Hamburger -->
 		<button class="hamburger-menu" id="menu-toggle" aria-label="Toggle menu">
@@ -18,6 +18,6 @@
 <!-- Mobile Sidebar Overlay -->
 <div id="mobile-sidebar" class="mobile-sidebar">
 	<div class="mobile-sidebar-content">
-		<?php component('nav'); ?>
+		<?php component('nav', ['navItems' => $props['navItems']]); ?>
 	</div>
 </div>
