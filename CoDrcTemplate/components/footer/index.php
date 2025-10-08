@@ -13,15 +13,7 @@
 							<h3 class="footer-nav-title">
 								<a href="<?= htmlspecialchars($item['url']) ?>"><?= htmlspecialchars($item['label']) ?></a>
 							</h3>
-							<?php if (isset($item['children'])): ?>
-								<ul class="footer-nav-list">
-									<?php foreach ($item['children'] as $child): ?>
-										<li class="footer-nav-item">
-											<a href="<?= htmlspecialchars($child['url']) ?>"><?= htmlspecialchars($child['label']) ?></a>
-										</li>
-									<?php endforeach; ?>
-								</ul>
-							<?php endif; ?>
+							<?= isset($item['children']) ? Helpers::renderFooterNavList($item['children']) : '' ?>
 						</div>
 					<?php endforeach; ?>
 				</nav>

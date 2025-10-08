@@ -32,6 +32,21 @@ class Helpers {
     }
 
     /**
+     * Render footer navigation children list
+     * Usage: Helpers::renderFooterNavList($children)
+     */
+    public static function renderFooterNavList($children) {
+        $html = '<ul class="footer-nav-list">';
+        foreach ($children as $child) {
+            $html .= '<li class="footer-nav-item">';
+            $html .= '<a href="' . htmlspecialchars($child['url']) . '">' . htmlspecialchars($child['label']) . '</a>';
+            $html .= '</li>';
+        }
+        $html .= '</ul>';
+        return $html;
+    }
+
+    /**
      * Get preparedness levels from JSON file
      * Returns array with national, RMA, and local preparedness levels with descriptions and sources
      */
