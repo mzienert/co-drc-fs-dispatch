@@ -15,8 +15,8 @@ if (!$buffer_started) {
     define('LAYOUT_BUFFER_LEVEL', ob_get_level());
 }
 
-// Create render_layout closure that captures layoutData
-$render_layout = function() use (&$layoutData) {
+// Create render_layout closure that captures layoutData and page metadata
+$render_layout = function() use (&$layoutData, &$layout, &$page_title, &$meta_description, &$body_class, &$canonical_url, &$og_title, &$og_description, &$og_url, &$og_type, &$og_site_name, &$og_image) {
     // Skip if buffering never started
     if (defined('BUFFER_FAILED') && BUFFER_FAILED) {
         return;
@@ -34,9 +34,6 @@ $render_layout = function() use (&$layoutData) {
         error_log("Buffer level mismatch: expected " . LAYOUT_BUFFER_LEVEL . ", got $current_level");
         return;
     }
-
-    global $layout, $page_title, $meta_description, $body_class, $canonical_url;
-    global $og_title, $og_description, $og_url, $og_type, $og_site_name, $og_image;
 
     // Get the buffered page content
     $content = ob_get_clean();
