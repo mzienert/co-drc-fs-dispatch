@@ -49,7 +49,7 @@
 		<link rel="stylesheet" href="/assets/css/custom.css" />
 	</head>
 	<body class="is-preload <?php echo htmlspecialchars($body_class); ?>">
-		<?php require_once __DIR__ . '/../data/nav.php'; ?>
+		<?php $navItems = require_once __DIR__ . '/../data/nav.php'; ?>
 		<div id="wrapper">
 			<div id="main">
 				<?php component('header', ['navItems' => $navItems]) ?>

@@ -1,5 +1,5 @@
 <?php
-    $navItems = [
+    return [
         ['label' => 'Home', 'url' => '/'],
         [
             'label' => 'About',
