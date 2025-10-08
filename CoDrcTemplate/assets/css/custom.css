@@ -216,7 +216,7 @@
 }
 
 .footer-logo {
-    max-width: 40%;
+    max-width: 90%;
     height: auto;
     margin: 0 0 1em 0;
     padding-left: 0.5em;
@@ -227,6 +227,28 @@
     color: #ffffff;
     font-size: 1em;
     padding-left: 0.5em;
+}
+
+/* Footer Contact Info */
+.footer-contact {
+    color: #ffffff;
+}
+
+.footer-contact-item {
+    margin: 0 0 0.5em 0;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.footer-contact-item a {
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.footer-contact-item a:hover {
+    color: #D4AF37 !important;
+    text-decoration: underline;
 }
 
 /* Footer Navigation */
