@@ -3,7 +3,7 @@
 	<div class="footer-container">
 		<div class="row gtr-50">
 			<div class="col-4 col-12-medium footer-left">
-				<div class="footer-logo"></div>
+				<img src="/assets/images/logo.png" alt="Logo" class="footer-logo" />
 				<p class="footer-copyright">&copy; <?php echo date('Y'); ?>. All rights reserved.</p>
 			</div>
 			<div class="col-8 col-12-medium footer-right">
