@@ -397,7 +397,7 @@
     margin: 1.5em 0;
     padding: 0;
     background-color: rgba(90, 26, 26, 0.5);
-    border-left: 4px solid #D4AF37;
+    border-left: 4px solid #4A9B9B;
     transition: all 0.3s ease;
     cursor: pointer;
 }
@@ -433,12 +433,12 @@
 
 .pl-label {
     font-family: "Open Sans", sans-serif;
-    font-size: 1em;
+    font-size: 1.25em;
     font-weight: 600;
     margin: 0 0 0.5em 0;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #4A9B9B;
+    color: #D4AF37;
 }
 
 .pl-value {
