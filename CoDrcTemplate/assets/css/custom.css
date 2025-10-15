@@ -501,6 +501,7 @@
 
 .nav-item {
     border-bottom: solid 1px rgba(210, 215, 217, 0.75);
+    padding-left: 0;
 }
 
 .nav-item a {
@@ -556,6 +557,7 @@
 
 .nav-dropdown-item {
     border-bottom: solid 1px rgba(210, 215, 217, 0.75);
+    padding-left: 1.5em;
 }
 
 .nav-dropdown-link {
