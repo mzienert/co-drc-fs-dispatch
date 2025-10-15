@@ -101,6 +101,18 @@
 				e.stopPropagation();
 			});
 
+			// Mobile dropdown toggle
+			document.querySelectorAll('.nav-item.has-dropdown > .nav-link').forEach(link => {
+				link.addEventListener('click', function(e) {
+					// Only prevent default and toggle on mobile (< 981px)
+					if (window.innerWidth <= 980) {
+						e.preventDefault();
+						const parentItem = this.parentElement;
+						parentItem.classList.toggle('expanded');
+					}
+				});
+			});
+
 			// Preparedness level expand/collapse
 			document.querySelectorAll('[data-expandable]').forEach(item => {
 				const header = item.querySelector('.pl-header');
