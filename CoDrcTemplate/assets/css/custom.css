@@ -548,6 +548,10 @@
     .nav-dropdown-link:hover {
         color: #ffffff !important;
     }
+
+    .nav-dropdown-item:last-child {
+        border-bottom: none;
+    }
 }
 
 .nav-dropdown-item {
