@@ -7,10 +7,11 @@
             'children' => [
                 ['label' => 'Our Team', 'url' => '/about/team/'],
                 ['label' => 'History', 'url' => '/about/history/'],
-                ['label' => 'Testing2', 'url' => '/about/testing2/']
+                ['label' => 'Smoke Report', 'url' => '/about/testing2/'],
+                ['label' => 'Testing2', 'url' => '/about/testing3/']
             ]
         ],
-        ['label' => 'Testing', 'url' => '/testing/',],
+        ['label' => 'Smoke Report', 'url' => '/testing/',],
         ['label' => 'Contact', 'url' => '/contact/']
     ];
 ?>
