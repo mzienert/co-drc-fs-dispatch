@@ -44,3 +44,4 @@ config.local.php
 *.rar
 
 notes.txt
+/scripts

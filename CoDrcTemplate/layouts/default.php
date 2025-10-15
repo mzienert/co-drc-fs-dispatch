@@ -46,13 +46,16 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://gacc.nifc.gov/rmcc/assets/css/main.css" />
-		<link rel="stylesheet" href="/assets/css/custom.css" />
-	</head>
-	<body class="is-preload <?php echo htmlspecialchars($body_class); ?>">
 		<?php
 		global $layoutData;
 		$dispatchInfo = $layoutData['dispatchInfo'];
 		$navItems = $layoutData['navItems'];
+		$basePath = $dispatchInfo['base_path'] ?? '';
+		?>
+		<link rel="stylesheet" href="<?= htmlspecialchars($basePath) ?>/assets/css/custom.css" />
+	</head>
+	<body class="is-preload <?php echo htmlspecialchars($body_class); ?>">
+		<?php
 
 		// Prepare footer contact data
 		$footerContact = [
@@ -75,7 +78,7 @@
 			</div>
 		</div>
 
-		<?php \App\Helpers::component('footer', ['navItems' => $navItems, 'contact' => $footerContact]); ?>
+		<?php \App\Helpers::component('footer', ['navItems' => $navItems, 'contact' => $footerContact, 'dispatchInfo' => $dispatchInfo]); ?>
 
 		<?php include(__DIR__ . '/../scripts.php'); ?>
 
