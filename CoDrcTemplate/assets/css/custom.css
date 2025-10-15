@@ -513,7 +513,7 @@
     color: #ffffff;
     text-decoration: none;
     font-family: "Open Sans", sans-serif;
-    font-size: 1.25em; /* 20px at base 16px */
+    font-size: 1.5em;
     font-weight: 400;
     transition: color 0.2s ease-in-out;
 }
@@ -539,6 +539,10 @@
     display: block;
 }
 
+.nav-item.has-dropdown.expanded .nav-dropdown-item:first-child {
+    border-top: 1px solid rgba(210, 215, 217, 0.75);
+}
+
 /* Mobile: Prevent color change on dropdown link hover */
 @media screen and (max-width: 980px) {
     .nav-dropdown-link:hover {
@@ -556,7 +560,7 @@
     color: #ffffff;
     text-decoration: none;
     font-family: "Open Sans", sans-serif;
-    font-size: 1em;
+    font-size: 1.25em;
     font-weight: 400;
     transition: background-color 0.2s ease-in-out;
 }
