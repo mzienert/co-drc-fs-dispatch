@@ -36,7 +36,7 @@
     width: 80%;
     max-width: 300px;
     height: 100vh;
-    background: #f5f6f7;
+    background: #000000;
     border-right: solid 2px rgba(210, 215, 217, 0.75);
     z-index: 2000;
     transition: left 0.3s ease-in-out;
@@ -213,6 +213,10 @@
 
 .footer-left {
     margin-bottom: 2em;
+}
+
+.footer-right {
+    padding-left: 3em !important;
 }
 
 .footer-logo {
