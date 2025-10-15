@@ -143,7 +143,7 @@
 
     .desktop-nav .nav-link {
         padding: 0 1.5em;
-        font-size: 1.25em;
+        font-size: 1.5em;
         display: flex;
         align-items: center; /* Vertically center text */
         transition: background-color 0.2s ease-in-out;
@@ -565,6 +565,10 @@
 @media screen and (min-width: 981px) {
     .nav-item.has-dropdown:hover .nav-dropdown {
         display: block;
+    }
+
+    .nav-dropdown-link {
+        font-size: 1.25em;
     }
 
     .nav-dropdown-link:hover {
