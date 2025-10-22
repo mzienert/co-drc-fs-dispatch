@@ -7,6 +7,42 @@ namespace App;
  */
 class Helpers {
     /**
+     * Get a prop value with optional default
+     * Usage: \App\Helpers::prop($props, 'dispatchInfo.base_path', '')
+     *
+     * @param array $props Props array
+     * @param string $key Dot-notation key (e.g., 'dispatchInfo.base_path')
+     * @param mixed $default Default value if not found
+     * @return mixed
+     */
+    public static function prop($props, $key, $default = '') {
+        $keys = explode('.', $key);
+        $value = $props;
+
+        foreach ($keys as $k) {
+            if (!isset($value[$k])) {
+                return $default;
+            }
+            $value = $value[$k];
+        }
+
+        return $value;
+    }
+
+    /**
+     * Sanitize string for HTML output with optional first character capitalization
+     * Usage: \App\Helpers::sanitize($value) or \App\Helpers::sanitize($value, true)
+     *
+     * @param string $value Value to sanitize
+     * @param bool $capitalize Capitalize first character (default: false)
+     * @return string
+     */
+    public static function sanitize($value, $capitalize = false) {
+        $sanitized = htmlspecialchars($value);
+        return $capitalize ? ucfirst($sanitized) : $sanitized;
+    }
+
+    /**
      * Helper function to include reusable components (like React components)
      * Usage: \App\Helpers::component('nav'); or \App\Helpers::component('hero', ['title' => 'Welcome']);
      * Inside components, access props via $props array (e.g., <?= $props['title'] ?>)
@@ -79,7 +115,7 @@ class Helpers {
     /**
      * Get SharePoint list data
      *
-     * Usage: \App\Helpers::getSharePointList('test-list')
+     * Usage: \App\Helpers::getSharePointList('website-data')
      *
      * @param string $listName List name from sharepointConfig.php
      * @return array|null Array of items or null on error
@@ -110,6 +146,36 @@ class Helpers {
             error_log("SharePoint error for list '$listName': " . $e->getMessage());
             return null;
         }
+    }
+
+    /**
+     * Get fire danger levels from SharePoint
+     * Returns array with higher-elevation and lower-elevation values
+     *
+     * @return array Array with 'higher-elevation' and 'lower-elevation' keys
+     */
+    public static function getFireDanger() {
+        $defaultValues = [
+            'higher-elevation' => 'N/A',
+            'lower-elevation' => 'N/A'
+        ];
+
+        $items = self::getSharePointList('website-data');
+        if ($items === null) {
+            return $defaultValues;
+        }
+
+        // Find the fire-danger row
+        foreach ($items as $item) {
+            if (isset($item['Title']) && $item['Title'] === 'fire-danger') {
+                return [
+                    'higher-elevation' => $item['higher-elevation'] ?? 'N/A',
+                    'lower-elevation' => $item['lower-elevation'] ?? 'N/A'
+                ];
+            }
+        }
+
+        return $defaultValues;
     }
 }
 ?>

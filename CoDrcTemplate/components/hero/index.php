@@ -1,66 +1,45 @@
 <!-- Hero Component -->
 <?php
-	$preparednessLevels = \App\Helpers::getPreparednessLevels();
-	$basePath = $props['dispatchInfo']['base_path'] ?? '';
+	use App\Helpers;
+
+	$fireDanger = Helpers::getFireDanger();
+	$basePath = Helpers::prop($props, 'dispatchInfo.base_path');
 ?>
-<section id="hero" style="background-image: url('<?= htmlspecialchars($basePath) ?>/assets/images/hero.jpg');">
+<section id="hero" style="background-image: url('<?= Helpers::sanitize($basePath) ?>/assets/images/hero.jpg');">
 	<div class="hero-container">
 		<div class="row">
 			<div class="col-7 hero-left">
-				<img src="<?= htmlspecialchars($props['dispatchInfo']['base_path'] ?? '') ?>/assets/images/logo.png" alt="<?= htmlspecialchars($props['dispatchInfo']['name']) ?>" class="hero-logo" />
+				<img src="<?= Helpers::sanitize($basePath) ?>/assets/images/logo.png" alt="<?= Helpers::sanitize(Helpers::prop($props, 'dispatchInfo.name')) ?>" class="hero-logo" />
 			</div>
 			<div class="col-5 hero-right">
 				<div class="preparedness-levels">
-					<h2>Preparedness Levels</h2>
+					<h2>Current Fire Danger</h2>
 
-					<!-- National -->
+					<!-- Higher Elevation -->
 					<div class="pl-item" data-expandable>
 						<div class="pl-header">
 							<div class="pl-header-content">
-								<h3 class="pl-label">National</h3>
-								<p class="pl-value">PL <?= htmlspecialchars($preparednessLevels['national']['level']) ?></p>
+								<h3 class="pl-label">Higher Elevation</h3>
+								<p class="pl-value"><?= Helpers::sanitize($fireDanger['higher-elevation'], true) ?></p>
 							</div>
-							<img src="<?= htmlspecialchars($props['dispatchInfo']['base_path'] ?? '') ?>/assets/svg/plus.svg" alt="Expand" class="pl-expand-icon" />
+							<img src="<?= Helpers::sanitize($basePath) ?>/assets/svg/plus.svg" alt="Expand" class="pl-expand-icon" />
 						</div>
 						<div class="pl-details">
-							<p class="pl-description"><?= htmlspecialchars($preparednessLevels['national']['description']) ?></p>
-							<?php if (!empty($preparednessLevels['national']['source'])): ?>
-								<a href="<?= htmlspecialchars($preparednessLevels['national']['source']) ?>" target="_blank" class="pl-source">Learn More →</a>
-							<?php endif; ?>
+							<p class="pl-description"></p>
 						</div>
 					</div>
 
-					<!-- RMA -->
+					<!-- Lower Elevation -->
 					<div class="pl-item" data-expandable>
 						<div class="pl-header">
 							<div class="pl-header-content">
-								<h3 class="pl-label">RMA</h3>
-								<p class="pl-value">PL <?= htmlspecialchars($preparednessLevels['rma']['level']) ?></p>
+								<h3 class="pl-label">Lower Elevation</h3>
+								<p class="pl-value"><?= Helpers::sanitize($fireDanger['lower-elevation'], true) ?></p>
 							</div>
-							<img src="<?= htmlspecialchars($props['dispatchInfo']['base_path'] ?? '') ?>/assets/svg/plus.svg" alt="Expand" class="pl-expand-icon" />
+							<img src="<?= Helpers::sanitize($basePath) ?>/assets/svg/plus.svg" alt="Expand" class="pl-expand-icon" />
 						</div>
 						<div class="pl-details">
-							<p class="pl-description"><?= htmlspecialchars($preparednessLevels['rma']['description']) ?></p>
-							<?php if (!empty($preparednessLevels['rma']['source'])): ?>
-								<a href="<?= htmlspecialchars($preparednessLevels['rma']['source']) ?>" target="_blank" class="pl-source">Learn More →</a>
-							<?php endif; ?>
-						</div>
-					</div>
-
-					<!-- Local -->
-					<div class="pl-item" data-expandable>
-						<div class="pl-header">
-							<div class="pl-header-content">
-								<h3 class="pl-label">Local</h3>
-								<p class="pl-value">PL <?= htmlspecialchars($preparednessLevels['local']['level']) ?></p>
-							</div>
-							<img src="<?= htmlspecialchars($props['dispatchInfo']['base_path'] ?? '') ?>/assets/svg/plus.svg" alt="Expand" class="pl-expand-icon" />
-						</div>
-						<div class="pl-details">
-							<p class="pl-description"><?= htmlspecialchars($preparednessLevels['local']['description']) ?></p>
-							<?php if (!empty($preparednessLevels['local']['source'])): ?>
-								<a href="<?= htmlspecialchars($preparednessLevels['local']['source']) ?>" target="_blank" class="pl-source">Learn More →</a>
-							<?php endif; ?>
+							<p class="pl-description"></p>
 						</div>
 					</div>
 				</div>
