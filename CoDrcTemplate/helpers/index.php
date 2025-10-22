@@ -75,5 +75,41 @@ class Helpers {
 
         return $levels;
     }
+
+    /**
+     * Get SharePoint list data
+     *
+     * Usage: \App\Helpers::getSharePointList('test-list')
+     *
+     * @param string $listName List name from sharepointConfig.php
+     * @return array|null Array of items or null on error
+     */
+    public static function getSharePointList($listName) {
+        require_once __DIR__ . '/SharePointListClient.php';
+
+        // Load SharePoint config
+        $configFile = __DIR__ . '/../data/sharepointConfig.php';
+        if (!file_exists($configFile)) {
+            error_log("SharePoint config file not found: $configFile");
+            return null;
+        }
+
+        $allConfigs = require $configFile;
+
+        if (!isset($allConfigs[$listName])) {
+            error_log("SharePoint list config not found: $listName");
+            return null;
+        }
+
+        $config = $allConfigs[$listName];
+
+        try {
+            $client = new SharePointListClient($config);
+            return $client->getItems();
+        } catch (\Exception $e) {
+            error_log("SharePoint error for list '$listName': " . $e->getMessage());
+            return null;
+        }
+    }
 }
 ?>
