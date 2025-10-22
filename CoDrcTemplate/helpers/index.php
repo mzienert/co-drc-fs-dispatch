@@ -85,34 +85,6 @@ class Helpers {
     }
 
     /**
-     * Get preparedness levels from JSON file
-     * Returns array with national, RMA, and local preparedness levels with descriptions and sources
-     */
-    public static function getPreparednessLevels() {
-        $levels = [
-            'national' => ['level' => 'N/A', 'description' => '', 'source' => ''],
-            'rma' => ['level' => 'N/A', 'description' => '', 'source' => ''],
-            'local' => ['level' => 'N/A', 'description' => '', 'source' => '']
-        ];
-
-        $pl_file = __DIR__ . '/../pl.json';
-        if (file_exists($pl_file)) {
-            $json_content = file_get_contents($pl_file);
-            $data = json_decode($json_content, true);
-
-            if ($data && is_array($data)) {
-                foreach (['national', 'rma', 'local'] as $key) {
-                    if (isset($data[$key]) && is_array($data[$key])) {
-                        $levels[$key] = $data[$key];
-                    }
-                }
-            }
-        }
-
-        return $levels;
-    }
-
-    /**
      * Get SharePoint list data
      *
      * Usage: \App\Helpers::getSharePointList('website-data')

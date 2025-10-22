@@ -8,26 +8,31 @@
     $pageContext->meta_description = "Welcome to {$dispatchInfo['name']}";
 ?>
 
-<?php \App\Helpers::component('hero', ['dispatchInfo' => $dispatchInfo]); ?>
+<?php use App\Helpers; ?>
 
-<h1>Welcome to <?= htmlspecialchars($dispatchInfo['name']) ?></h1>
+<?php Helpers::component('hero', ['dispatchInfo' => $dispatchInfo]); ?>
+
+<h1>Welcome to <?= Helpers::sanitize($dispatchInfo['name']) ?></h1>
 <p>This is the home page content. Notice how clean this is - just content, no boilerplate!</p>
 
 <h2>SharePoint Integration Demo</h2>
 <?php
     // Get SharePoint list data
-    $testItems = \App\Helpers::getSharePointList('test-list');
+    $testItems = Helpers::getSharePointList('website-data');
 
     if ($testItems !== null && !empty($testItems)) {
         echo '<p>Successfully loaded data from SharePoint:</p>';
         echo '<ul>';
         foreach ($testItems as $item) {
             echo '<li>';
-            echo '<strong>' . htmlspecialchars($item['Title'] ?? 'No Title') . '</strong>';
-            if (isset($item['test-data'])) {
-                echo ' - ' . htmlspecialchars($item['test-data']);
+            echo '<strong>' . Helpers::sanitize($item['Title'] ?? 'No Title') . '</strong>';
+            if (isset($item['higher-elevation'])) {
+                echo ' - Higher: ' . Helpers::sanitize($item['higher-elevation']);
             }
-            echo ' <small>(Modified: ' . htmlspecialchars($item['Modified'] ?? 'Unknown') . ')</small>';
+            if (isset($item['lower-elevation'])) {
+                echo ' - Lower: ' . Helpers::sanitize($item['lower-elevation']);
+            }
+            echo ' <small>(Modified: ' . Helpers::sanitize($item['Modified'] ?? 'Unknown') . ')</small>';
             echo '</li>';
         }
         echo '</ul>';

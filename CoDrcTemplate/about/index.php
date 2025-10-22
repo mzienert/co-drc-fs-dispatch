@@ -8,8 +8,10 @@
     $pageContext->meta_description = "Learn more about {$dispatchInfo['name']}";
 ?>
 
+<?php use App\Helpers; ?>
+
 <div style="background-color: #eee">
-    <h1>Testing <?= htmlspecialchars($dispatchInfo['name']) ?></h1>
+    <h1>Testing <?= Helpers::sanitize($dispatchInfo['name']) ?></h1>
 
     <p>This is the about page. It demonstrates how easy it is to create new pages with our React-like layout system.</p>
 
@@ -17,7 +19,7 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
     <h2>Contact Information</h2>
-    <p><strong>24-Hour Line:</strong> <?= htmlspecialchars($dispatchInfo['phone_24_hour']) ?></p>
-    <p><strong>Office:</strong> <?= htmlspecialchars($dispatchInfo['phone_office']) ?></p>
-    <p><strong>Email:</strong> <?= htmlspecialchars($dispatchInfo['email']) ?></p>
+    <p><strong>24-Hour Line:</strong> <?= Helpers::sanitize($dispatchInfo['phone_24_hour']) ?></p>
+    <p><strong>Office:</strong> <?= Helpers::sanitize($dispatchInfo['phone_office']) ?></p>
+    <p><strong>Email:</strong> <?= Helpers::sanitize($dispatchInfo['email']) ?></p>
 </div>

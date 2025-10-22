@@ -1,28 +1,29 @@
 <!DOCTYPE HTML>
+<?php use App\Helpers; ?>
 <html>
 	<head>
-		<title><?php echo htmlspecialchars($page_title); ?></title>
+		<title><?= Helpers::sanitize($page_title) ?></title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<?php if ($meta_description): ?>
-			<meta name="description" content="<?php echo htmlspecialchars($meta_description); ?>" />
+			<meta name="description" content="<?= Helpers::sanitize($meta_description) ?>" />
 		<?php endif; ?>
 		<?php if (isset($canonical_url)): ?>
-			<link rel="canonical" href="<?php echo htmlspecialchars($canonical_url); ?>" />
+			<link rel="canonical" href="<?= Helpers::sanitize($canonical_url) ?>" />
 		<?php endif; ?>
 
 		<!-- Open Graph / Social Media -->
-		<meta property="og:title" content="<?php echo htmlspecialchars($og_title); ?>" />
+		<meta property="og:title" content="<?= Helpers::sanitize($og_title) ?>" />
 		<?php if ($og_description): ?>
-			<meta property="og:description" content="<?php echo htmlspecialchars($og_description); ?>" />
+			<meta property="og:description" content="<?= Helpers::sanitize($og_description) ?>" />
 		<?php endif; ?>
 		<?php if ($og_url): ?>
-			<meta property="og:url" content="<?php echo htmlspecialchars($og_url); ?>" />
+			<meta property="og:url" content="<?= Helpers::sanitize($og_url) ?>" />
 		<?php endif; ?>
-		<meta property="og:type" content="<?php echo htmlspecialchars($og_type); ?>" />
-		<meta property="og:site_name" content="<?php echo htmlspecialchars($og_site_name); ?>" />
+		<meta property="og:type" content="<?= Helpers::sanitize($og_type) ?>" />
+		<meta property="og:site_name" content="<?= Helpers::sanitize($og_site_name) ?>" />
 		<?php if (isset($og_image)): ?>
-			<meta property="og:image" content="<?php echo htmlspecialchars($og_image); ?>" />
+			<meta property="og:image" content="<?= Helpers::sanitize($og_image) ?>" />
 		<?php endif; ?>
 
 		<!-- Structured Data (Schema.org) -->
@@ -30,14 +31,14 @@
 		{
 		"@context": "https://schema.org",
 		"@type": "GovernmentOrganization",
-		"name": "<?= htmlspecialchars($dispatch_center_name ?? '', JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>",
-		"url": "<?= htmlspecialchars($site_base_url ?? '', JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>",
-		"telephone": "<?= htmlspecialchars($dispatch_center_24_hour_phone ?? '', JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>",
-		"email": "<?= htmlspecialchars($dispatch_center_email ?? '', JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>",
+		"name": "<?= Helpers::sanitize($dispatch_center_name ?? '', JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>",
+		"url": "<?= Helpers::sanitize($site_base_url ?? '', JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>",
+		"telephone": "<?= Helpers::sanitize($dispatch_center_24_hour_phone ?? '', JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>",
+		"email": "<?= Helpers::sanitize($dispatch_center_email ?? '', JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>",
 		"address": {
 			"@type": "PostalAddress",
-			"streetAddress": "<?= htmlspecialchars($dispatch_center_address_line_1 ?? '', JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>",
-			"addressLocality": "<?= htmlspecialchars($dispatch_center_address_line_2 ?? '', JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>"
+			"streetAddress": "<?= Helpers::sanitize($dispatch_center_address_line_1 ?? '', JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>",
+			"addressLocality": "<?= Helpers::sanitize($dispatch_center_address_line_2 ?? '', JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>"
 		}
 		}
 		</script>
@@ -52,24 +53,24 @@
 		$navItems = $layoutData['navItems'];
 		$basePath = $dispatchInfo['base_path'] ?? '';
 		?>
-		<link rel="stylesheet" href="<?= htmlspecialchars($basePath) ?>/assets/css/custom.css" />
+		<link rel="stylesheet" href="<?= Helpers::sanitize($basePath) ?>/assets/css/custom.css" />
 	</head>
-	<body class="is-preload <?php echo htmlspecialchars($body_class); ?>">
+	<body class="is-preload <?= Helpers::sanitize($body_class) ?>">
 		<?php
 
 		// Prepare footer contact data
 		$footerContact = [
-			'centerId' => htmlspecialchars($dispatchInfo['id']),
-			'phone24' => htmlspecialchars($dispatchInfo['phone_24_hour']),
-			'phoneOffice' => htmlspecialchars($dispatchInfo['phone_office']),
-			'email' => htmlspecialchars($dispatchInfo['email']),
-			'address1' => htmlspecialchars($dispatchInfo['address_line_1']),
-			'address2' => htmlspecialchars($dispatchInfo['address_line_2'])
+			'centerId' => $dispatchInfo['id'],
+			'phone24' => $dispatchInfo['phone_24_hour'],
+			'phoneOffice' => $dispatchInfo['phone_office'],
+			'email' => $dispatchInfo['email'],
+			'address1' => $dispatchInfo['address_line_1'],
+			'address2' => $dispatchInfo['address_line_2']
 		];
 		?>
 		<div id="wrapper">
 			<div id="main">
-				<?php \App\Helpers::component('header', ['navItems' => $navItems, 'dispatchInfo' => $dispatchInfo]) ?>
+				<?php Helpers::component('header', ['navItems' => $navItems, 'dispatchInfo' => $dispatchInfo]) ?>
 				<div class="inner">
 					<section class="content-area">
 						<?php echo $content; ?>
@@ -78,7 +79,7 @@
 			</div>
 		</div>
 
-		<?php \App\Helpers::component('footer', ['navItems' => $navItems, 'contact' => $footerContact, 'dispatchInfo' => $dispatchInfo]); ?>
+		<?php Helpers::component('footer', ['navItems' => $navItems, 'contact' => $footerContact, 'dispatchInfo' => $dispatchInfo]); ?>
 
 		<?php include(__DIR__ . '/../scripts.php'); ?>
 
