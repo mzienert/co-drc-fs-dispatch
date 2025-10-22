@@ -25,10 +25,6 @@ class ComposerStaticInite5d53b917c4e832de0f92c5a78436c5c
             'Doctrine\\Instantiator\\' => 22,
             'DeepCopy\\' => 9,
         ),
-        'A' => 
-        array (
-            'App\\' => 4,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -48,13 +44,12 @@ class ComposerStaticInite5d53b917c4e832de0f92c5a78436c5c
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
-        'App\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/',
-        ),
     );
 
     public static $classMap = array (
+        'App\\Helpers' => __DIR__ . '/../..' . '/helpers/index.php',
+        'App\\PageContext' => __DIR__ . '/../..' . '/lib/PageContext.php',
+        'App\\SharePointListClient' => __DIR__ . '/../..' . '/lib/SharePointListClient.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\ActualValueIsNotAnObjectException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/ActualValueIsNotAnObjectException.php',

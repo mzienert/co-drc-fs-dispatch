@@ -58,4 +58,87 @@ class HelpersTest extends TestCase
 
         $this->assertEquals($expected, $result);
     }
+
+    /**
+     * Test prop method with simple key
+     */
+    public function testPropWithSimpleKey()
+    {
+        $props = ['name' => 'Test Name'];
+        $result = Helpers::prop($props, 'name');
+
+        $this->assertEquals('Test Name', $result);
+    }
+
+    /**
+     * Test prop method with nested key (dot notation)
+     */
+    public function testPropWithNestedKey()
+    {
+        $props = [
+            'dispatchInfo' => [
+                'base_path' => '/test/path'
+            ]
+        ];
+
+        $result = Helpers::prop($props, 'dispatchInfo.base_path');
+
+        $this->assertEquals('/test/path', $result);
+    }
+
+    /**
+     * Test prop method with deeply nested key
+     */
+    public function testPropWithDeeplyNestedKey()
+    {
+        $props = [
+            'level1' => [
+                'level2' => [
+                    'level3' => 'deep value'
+                ]
+            ]
+        ];
+
+        $result = Helpers::prop($props, 'level1.level2.level3');
+
+        $this->assertEquals('deep value', $result);
+    }
+
+    /**
+     * Test prop method with missing key returns default
+     */
+    public function testPropWithMissingKeyReturnsDefault()
+    {
+        $props = ['name' => 'Test'];
+        $result = Helpers::prop($props, 'missing.key', 'default value');
+
+        $this->assertEquals('default value', $result);
+    }
+
+    /**
+     * Test prop method with missing key returns empty string by default
+     */
+    public function testPropWithMissingKeyReturnsEmptyString()
+    {
+        $props = ['name' => 'Test'];
+        $result = Helpers::prop($props, 'missing.key');
+
+        $this->assertEquals('', $result);
+    }
+
+    /**
+     * Test prop method with partially missing nested key
+     */
+    public function testPropWithPartiallyMissingNestedKey()
+    {
+        $props = [
+            'dispatchInfo' => [
+                'name' => 'Test Center'
+            ]
+        ];
+
+        $result = Helpers::prop($props, 'dispatchInfo.base_path', '/default');
+
+        $this->assertEquals('/default', $result);
+    }
 }

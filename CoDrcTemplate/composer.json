@@ -9,9 +9,10 @@
         "phpunit/phpunit": "^9.6"
     },
     "autoload": {
-        "psr-4": {
-            "App\\": "."
-        }
+        "classmap": [
+            "helpers/index.php",
+            "lib/"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
