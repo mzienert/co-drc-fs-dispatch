@@ -58,11 +58,21 @@ class SharePointListClient {
     }
 
     /**
+     * Get list items from SharePoint
+     * This is the main public method to retrieve data
+     *
+     * @return array|null Array of items or null on error
+     */
+    public function getItems() {
+        return $this->fetchListItems();
+    }
+
+    /**
      * Fetch list items from SharePoint REST API
      *
      * @return array|null Array of items or null on error
      */
-    public function fetchListItems() {
+    private function fetchListItems() {
         $this->log("Fetching list items");
 
         // Step 1: Get authentication cookie
