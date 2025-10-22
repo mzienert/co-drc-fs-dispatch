@@ -68,6 +68,46 @@ class SharePointListClient {
     }
 
     /**
+     * Get a single item by ID
+     *
+     * @param int $itemId Item ID
+     * @return array|null Item data or null if not found
+     */
+    public function getItemById($itemId) {
+        $items = $this->getItems();
+        if ($items === null) {
+            return null;
+        }
+
+        foreach ($items as $item) {
+            if (isset($item['ID']) && $item['ID'] == $itemId) {
+                return $item;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Get the most recently modified item
+     *
+     * @return array|null Most recent item or null
+     */
+    public function getLatestItem() {
+        $items = $this->getItems();
+        if (empty($items)) {
+            return null;
+        }
+
+        // Sort by Modified date descending
+        usort($items, function($a, $b) {
+            return strcmp($b['Modified'] ?? '', $a['Modified'] ?? '');
+        });
+
+        return $items[0];
+    }
+
+    /**
      * Fetch list items from SharePoint REST API
      *
      * @return array|null Array of items or null on error
