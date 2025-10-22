@@ -10,7 +10,7 @@
 
     // Load helper functions
     require_once __DIR__ . '/../helpers/index.php';
-    require_once __DIR__ . '/../helpers/PageContext.php';
+    require_once __DIR__ . '/../lib/PageContext.php';
 
     // Load and prepare application data
     $layoutData = [
