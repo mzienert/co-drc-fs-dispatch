@@ -113,17 +113,14 @@ class SharePointListClient {
      * @return array|null Array of items or null on error
      */
     private function fetchListItems() {
-        $this->log("Fetching list items");
-
         // Step 1: Get authentication cookie
         if (!$this->getFedAuthCookie()) {
-            $this->log("ERROR: Failed to obtain FedAuth cookie");
+            error_log("SharePointListClient: Failed to obtain FedAuth cookie for list {$this->listGuid}");
             return null;
         }
 
         // Step 2: Call REST API
         $apiUrl = $this->siteUrl . "/_api/web/lists(guid'" . $this->listGuid . "')/items";
-        $this->log("Calling REST API: $apiUrl");
 
         $ch = curl_init($apiUrl);
         curl_setopt_array($ch, [
@@ -143,13 +140,12 @@ class SharePointListClient {
 
         // Check for errors
         if ($response === false) {
-            $this->log("ERROR: cURL error - $curlError");
+            error_log("SharePointListClient: cURL error for list {$this->listGuid}: $curlError");
             return null;
         }
 
         if ($httpCode !== 200) {
-            $this->log("ERROR: HTTP $httpCode");
-            $this->log("Response: " . substr($response, 0, 200));
+            error_log("SharePointListClient: HTTP $httpCode for list {$this->listGuid}");
             return null;
         }
 
@@ -157,12 +153,11 @@ class SharePointListClient {
         $data = json_decode($response, true);
 
         if (!isset($data['d']['results'])) {
-            $this->log("ERROR: Unexpected response format");
+            error_log("SharePointListClient: Unexpected response format for list {$this->listGuid}");
             return null;
         }
 
         $items = $data['d']['results'];
-        $this->log("Successfully fetched " . count($items) . " items");
 
         // Clean up items (decode field names and remove metadata)
         $items = array_map([$this, 'cleanItem'], $items);
@@ -239,8 +234,6 @@ class SharePointListClient {
      * @return bool True on success, false on failure
      */
     private function getFedAuthCookie() {
-        $this->log("Getting FedAuth cookie from share link");
-
         $ch = curl_init($this->shareLink);
         curl_setopt_array($ch, [
             CURLOPT_RETURNTRANSFER => true,
@@ -259,39 +252,29 @@ class SharePointListClient {
 
         // Check for cURL errors
         if ($response === false) {
-            $this->log("ERROR: cURL error - $curlError");
+            error_log("SharePointListClient: cURL error getting cookie for list {$this->listGuid}: $curlError");
             return false;
         }
 
         // Check HTTP status
         if ($httpCode !== 200) {
-            $this->log("ERROR: HTTP $httpCode when getting cookie");
+            error_log("SharePointListClient: HTTP $httpCode when getting cookie for list {$this->listGuid}");
             return false;
         }
 
         // Verify cookie file was created and contains FedAuth
         if (!file_exists($this->cookieFile)) {
-            $this->log("ERROR: Cookie file not created");
+            error_log("SharePointListClient: Cookie file not created for list {$this->listGuid}");
             return false;
         }
 
         $cookieContent = file_get_contents($this->cookieFile);
         if (strpos($cookieContent, 'FedAuth') === false) {
-            $this->log("ERROR: FedAuth cookie not found in cookie file");
+            error_log("SharePointListClient: FedAuth cookie not found for list {$this->listGuid}");
             return false;
         }
 
-        $this->log("Successfully obtained FedAuth cookie");
         return true;
-    }
-
-    /**
-     * Log debug message
-     */
-    private function log($message) {
-        if ($this->debug) {
-            echo "[SharePointListClient] $message\n";
-        }
     }
 }
 ?>
