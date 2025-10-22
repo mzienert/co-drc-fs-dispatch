@@ -13,5 +13,28 @@
 <h1>Welcome to <?= htmlspecialchars($dispatchInfo['name']) ?></h1>
 <p>This is the home page content. Notice how clean this is - just content, no boilerplate!</p>
 
+<h2>SharePoint Integration Demo</h2>
+<?php
+    // Get SharePoint list data
+    $testItems = \App\Helpers::getSharePointList('test-list');
+
+    if ($testItems !== null && !empty($testItems)) {
+        echo '<p>Successfully loaded data from SharePoint:</p>';
+        echo '<ul>';
+        foreach ($testItems as $item) {
+            echo '<li>';
+            echo '<strong>' . htmlspecialchars($item['Title'] ?? 'No Title') . '</strong>';
+            if (isset($item['test-data'])) {
+                echo ' - ' . htmlspecialchars($item['test-data']);
+            }
+            echo ' <small>(Modified: ' . htmlspecialchars($item['Modified'] ?? 'Unknown') . ')</small>';
+            echo '</li>';
+        }
+        echo '</ul>';
+    } else {
+        echo '<p><em>No SharePoint data available.</em></p>';
+    }
+?>
+
 <h2>Getting Started</h2>
 <p>This page demonstrates the new React-like layout system.</p>
