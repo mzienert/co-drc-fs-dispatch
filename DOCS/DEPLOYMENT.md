@@ -1,5 +1,41 @@
 # Deployment Guide
 
+## Pre-Deployment: Build Step
+
+Before deploying, you must build the production dependencies:
+
+```bash
+cd /path/to/your/project
+
+# Install production dependencies only (excludes PHPUnit and dev tools)
+composer install --no-dev --optimize-autoloader
+```
+
+This creates the `vendor/` directory with only the necessary runtime dependencies.
+
+**What gets excluded with `--no-dev`:**
+- PHPUnit testing framework
+- Development tools
+- Test files
+
+**What gets included:**
+- Composer autoloader
+- Any production packages you add in the future
+
+## Files to Deploy
+
+Deploy these files/directories:
+- ✅ `vendor/` - Composer dependencies (generated above)
+- ✅ All PHP application files (`index.php`, `helpers/`, `lib/`, `components/`, etc.)
+- ✅ `assets/` - CSS, images, SVG files
+- ✅ `config/`, `data/`, `layouts/` - Configuration and templates
+- ✅ `composer.json` - Dependency definition (optional but recommended)
+- ❌ `tests/` - DO NOT deploy
+- ❌ `.git/` - DO NOT deploy
+- ❌ `DOCS/` - DO NOT deploy
+- ❌ `phpunit.xml` - DO NOT deploy
+- ❌ `.phpunit.result.cache` - DO NOT deploy
+
 ## WebDAV Connection Setup
 
 This site deploys via WebDAV (not SFTP) to the NIFC server.

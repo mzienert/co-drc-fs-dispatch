@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# WebDAV Deployment Script for CoDRC Template
+# WebDAV Deployment Script for USFS Dispatch Center Template
 # Deploys to: https://gacc.nifc.gov/rm_drc_dav/
 
 set -e  # Exit on error
@@ -8,7 +8,7 @@ set -e  # Exit on error
 # Configuration
 WEBDAV_URL="https://gacc.nifc.gov/rm_drc_dav"
 WEBDAV_USER="mzienert"
-SOURCE_DIR="/Users/matthewzienert/Documents/USFS/website/CoDrcTemplate"
+SOURCE_DIR="/Users/matthewzienert/Documents/USFS/website"
 
 # Check if password is set
 if [ -z "$WEBDAV_PASSWORD" ]; then
@@ -17,7 +17,21 @@ if [ -z "$WEBDAV_PASSWORD" ]; then
     exit 1
 fi
 
-echo "Starting deployment to $WEBDAV_URL..."
+echo "=========================================="
+echo "Pre-Deployment: Building production files"
+echo "=========================================="
+echo ""
+
+# Build production dependencies
+cd "$SOURCE_DIR"
+echo "Running: composer install --no-dev --optimize-autoloader"
+composer install --no-dev --optimize-autoloader --quiet
+echo "✓ Production dependencies installed"
+echo ""
+
+echo "=========================================="
+echo "Starting deployment to $WEBDAV_URL"
+echo "=========================================="
 echo ""
 
 # Function to create a directory on the server
@@ -40,23 +54,77 @@ echo "Ensuring base collection exists..."
 curl -s -X MKCOL "$WEBDAV_URL/" -u "$WEBDAV_USER:$WEBDAV_PASSWORD" > /dev/null 2>&1 || true
 echo ""
 
-# Find all directories (excluding .DS_Store) and create them on the server
+# Directories to exclude from deployment
+EXCLUDE_DIRS=(
+    "tests"
+    "DOCS"
+    ".git"
+    "scripts"
+)
+
+# Files to exclude from deployment
+EXCLUDE_FILES=(
+    ".DS_Store"
+    "phpunit.xml"
+    ".phpunit.result.cache"
+    "composer.lock"
+    ".gitignore"
+    "notes.txt"
+    "notes2.txt"
+)
+
+# Function to check if directory should be excluded
+should_exclude_dir() {
+    local dir_name="$1"
+    for exclude in "${EXCLUDE_DIRS[@]}"; do
+        if [[ "$dir_name" == *"/$exclude"* ]] || [[ "$dir_name" == "$exclude"* ]]; then
+            return 0  # true, should exclude
+        fi
+    done
+    return 1  # false, should not exclude
+}
+
+# Function to check if file should be excluded
+should_exclude_file() {
+    local file_name="$1"
+    local base_name=$(basename "$file_name")
+
+    # Check file patterns
+    for exclude in "${EXCLUDE_FILES[@]}"; do
+        if [[ "$base_name" == "$exclude" ]]; then
+            return 0  # true, should exclude
+        fi
+    done
+
+    # Check directory patterns
+    for exclude in "${EXCLUDE_DIRS[@]}"; do
+        if [[ "$file_name" == *"/$exclude/"* ]]; then
+            return 0  # true, should exclude
+        fi
+    done
+
+    return 1  # false, should not exclude
+}
+
+# Find all directories (excluding hidden and excluded dirs) and create them on the server
 echo "Creating directory structure..."
 cd "$SOURCE_DIR"
 find . -type d -not -path "*/\.*" | while read -r dir; do
-    if [ "$dir" != "." ]; then
+    if [ "$dir" != "." ] && ! should_exclude_dir "$dir"; then
         remote_dir="${dir#./}"
         create_remote_dir "/$remote_dir"
     fi
 done
 echo ""
 
-# Upload all files (excluding .DS_Store)
+# Upload all files (excluding hidden and excluded files)
 echo "Uploading files..."
-find . -type f -not -name ".DS_Store" -not -path "*/\.*" | while read -r file; do
-    local_file="$SOURCE_DIR/$file"
-    remote_file="${file#./}"
-    upload_file "$local_file" "/$remote_file"
+find . -type f -not -path "*/\.*" | while read -r file; do
+    if ! should_exclude_file "$file"; then
+        local_file="$SOURCE_DIR/$file"
+        remote_file="${file#./}"
+        upload_file "$local_file" "/$remote_file"
+    fi
 done
 echo ""
 
