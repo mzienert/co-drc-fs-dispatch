@@ -49,6 +49,7 @@ composer.lock
 
 # PHPUnit
 /tests/coverage/
+.phpunit.result.cache
 
 notes.txt
 /scripts
