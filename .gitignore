@@ -43,5 +43,12 @@ config.local.php
 *.tar.gz
 *.rar
 
+# Composer
+/vendor/
+composer.lock
+
+# PHPUnit
+/tests/coverage/
+
 notes.txt
 /scripts
