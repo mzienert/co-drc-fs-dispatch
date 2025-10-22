@@ -5,7 +5,8 @@
                 strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false);
 
     // Set base path based on environment
-    $basePath = $isLocal ? '' : '/rm_drc_dav';
+    // Use relative path to avoid WebDAV authentication issues with static assets
+    $basePath = '.';
 
     return [
         'base_path' => $basePath,
