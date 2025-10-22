@@ -114,7 +114,72 @@ class SharePointListClient {
         $items = $data['d']['results'];
         $this->log("Successfully fetched " . count($items) . " items");
 
+        // Clean up items (decode field names and remove metadata)
+        $items = array_map([$this, 'cleanItem'], $items);
+
         return $items;
+    }
+
+    /**
+     * Clean an item by removing metadata and decoding field names
+     *
+     * @param array $item Raw item from SharePoint
+     * @return array Cleaned item
+     */
+    private function cleanItem(array $item) {
+        $cleaned = [];
+
+        // Fields to skip (metadata and complex objects)
+        $skipFields = [
+            '__metadata',
+            'FirstUniqueAncestorSecurableObject',
+            'RoleAssignments',
+            'AttachmentFiles',
+            'ContentType',
+            'GetDlpPolicyTip',
+            'FieldValuesAsHtml',
+            'FieldValuesAsText',
+            'FieldValuesForEdit',
+            'File',
+            'Folder',
+            'LikedByInformation',
+            'ParentList',
+            'Properties',
+            'Versions',
+        ];
+
+        foreach ($item as $key => $value) {
+            // Skip metadata fields and complex objects
+            if (in_array($key, $skipFields) || is_array($value) || is_object($value)) {
+                continue;
+            }
+
+            // Decode SharePoint field name encoding
+            $decodedKey = $this->decodeFieldName($key);
+
+            $cleaned[$decodedKey] = $value;
+        }
+
+        return $cleaned;
+    }
+
+    /**
+     * Decode SharePoint field name encoding
+     *
+     * SharePoint encodes special characters in field names:
+     * - Hyphen: _x002d_
+     * - Space: _x0020_
+     * - Underscore: _x005f_
+     *
+     * @param string $fieldName Encoded field name
+     * @return string Decoded field name
+     */
+    public static function decodeFieldName($fieldName) {
+        $decoded = $fieldName;
+        $decoded = str_replace('_x002d_', '-', $decoded);
+        $decoded = str_replace('_x0020_', ' ', $decoded);
+        $decoded = str_replace('_x005f_', '_', $decoded);
+        return $decoded;
     }
 
     /**
