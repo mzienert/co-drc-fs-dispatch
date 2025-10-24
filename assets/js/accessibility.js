@@ -14,7 +14,7 @@
 	};
 
 	// Font size cycle order
-	const FONT_SIZES = ['normal', 'large', 'xlarge'];
+	const FONT_SIZES = ['normal', 'large'];
 
 	/**
 	 * Initialize accessibility menu
@@ -76,7 +76,7 @@
 	}
 
 	/**
-	 * Toggle font size (cycles through normal -> large -> xlarge -> normal)
+	 * Toggle font size (cycles through normal -> large)
 	 */
 	function toggleFontSize() {
 		const html = document.documentElement;

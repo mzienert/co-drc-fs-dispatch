@@ -785,7 +785,6 @@
 }
 
 .accessibility-dropdown {
-	display: none;
 	background-color: #000000;
 	border: 1px solid rgba(210, 215, 217, 0.75);
 	padding: 0.5em 0;
@@ -793,8 +792,12 @@
 	list-style: none;
 }
 
+.accessibility-dropdown[hidden] {
+	display: none;
+}
+
 .accessibility-dropdown:not([hidden]) {
-	display: block;
+	display: block !important;
 }
 
 .accessibility-option {
@@ -863,12 +866,8 @@
    ======================================== */
 
 /* Font Size Classes */
-html.font-size-large {
-	font-size: 115%;
-}
-
-html.font-size-xlarge {
-	font-size: 130%;
+html.font-size-large body {
+	font-size: 115% !important;
 }
 
 /* Dyslexic Font Class */
