@@ -827,6 +827,16 @@
 	box-shadow: none !important;
 }
 
+.accessibility-option.active {
+	background-color: #5A1A1A !important;
+	color: #D4AF37 !important;
+}
+
+.accessibility-option:not(.active) {
+	background-color: transparent !important;
+	color: #ffffff !important;
+}
+
 .accessibility-option img {
 	width: 20px;
 	height: 20px;

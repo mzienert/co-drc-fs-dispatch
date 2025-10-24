@@ -80,6 +80,7 @@
 	 */
 	function toggleFontSize() {
 		const html = document.documentElement;
+		const btns = document.querySelectorAll('[data-toggle="font-size"]');
 		let currentSize = localStorage.getItem(STORAGE_KEYS.fontSize) || 'normal';
 
 		// Get current index and cycle to next
@@ -95,6 +96,9 @@
 		// Add new class (unless normal)
 		if (nextSize !== 'normal') {
 			html.classList.add('font-size-' + nextSize);
+			btns.forEach(btn => btn.classList.add('active'));
+		} else {
+			btns.forEach(btn => btn.classList.remove('active'));
 		}
 
 		// Save to localStorage
@@ -106,13 +110,16 @@
 	 */
 	function toggleDyslexicFont() {
 		const html = document.documentElement;
+		const btns = document.querySelectorAll('[data-toggle="dyslexic-font"]');
 		const isEnabled = html.classList.contains('dyslexic-font');
 
 		if (isEnabled) {
 			html.classList.remove('dyslexic-font');
+			btns.forEach(btn => btn.classList.remove('active'));
 			localStorage.setItem(STORAGE_KEYS.dyslexicFont, 'false');
 		} else {
 			html.classList.add('dyslexic-font');
+			btns.forEach(btn => btn.classList.add('active'));
 			localStorage.setItem(STORAGE_KEYS.dyslexicFont, 'true');
 		}
 	}
@@ -122,13 +129,16 @@
 	 */
 	function toggleHighContrast() {
 		const html = document.documentElement;
+		const btns = document.querySelectorAll('[data-toggle="high-contrast"]');
 		const isEnabled = html.classList.contains('high-contrast');
 
 		if (isEnabled) {
 			html.classList.remove('high-contrast');
+			btns.forEach(btn => btn.classList.remove('active'));
 			localStorage.setItem(STORAGE_KEYS.highContrast, 'false');
 		} else {
 			html.classList.add('high-contrast');
+			btns.forEach(btn => btn.classList.add('active'));
 			localStorage.setItem(STORAGE_KEYS.highContrast, 'true');
 		}
 	}
@@ -141,20 +151,26 @@
 
 		// Load font size
 		const fontSize = localStorage.getItem(STORAGE_KEYS.fontSize);
+		const fontSizeBtns = document.querySelectorAll('[data-toggle="font-size"]');
 		if (fontSize && fontSize !== 'normal') {
 			html.classList.add('font-size-' + fontSize);
+			fontSizeBtns.forEach(btn => btn.classList.add('active'));
 		}
 
 		// Load dyslexic font
 		const dyslexicFont = localStorage.getItem(STORAGE_KEYS.dyslexicFont);
+		const dyslexicFontBtns = document.querySelectorAll('[data-toggle="dyslexic-font"]');
 		if (dyslexicFont === 'true') {
 			html.classList.add('dyslexic-font');
+			dyslexicFontBtns.forEach(btn => btn.classList.add('active'));
 		}
 
 		// Load high contrast
 		const highContrast = localStorage.getItem(STORAGE_KEYS.highContrast);
+		const highContrastBtns = document.querySelectorAll('[data-toggle="high-contrast"]');
 		if (highContrast === 'true') {
 			html.classList.add('high-contrast');
+			highContrastBtns.forEach(btn => btn.classList.add('active'));
 		}
 	}
 
