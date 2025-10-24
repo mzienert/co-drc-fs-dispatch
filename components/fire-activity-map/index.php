@@ -10,7 +10,7 @@
 
 	// Map configuration
 	$mapId = '65d822c03058408384069b0c94281d43';
-	$mapExtent = '-116.0948,36.9734,-90.807,44.5409'; // Rocky Mountain area bounds
+	$mapExtent = '-109.0,36.9,-106.8,38.2'; // Durango Interagency Dispatch Center area (SW Colorado)
 	$mapParams = [
 		'zoom' => 'true',
 		'previewImage' => 'false',
