@@ -46,7 +46,15 @@ upload_file() {
     local local_file="$1"
     local remote_path="$2"
     echo "Uploading: $remote_path"
-    curl -s -T "$local_file" "$WEBDAV_URL$remote_path" -u "$WEBDAV_USER:$WEBDAV_PASSWORD" > /dev/null
+
+    # Delete existing file first (ignore errors if it doesn't exist)
+    curl -s -X DELETE "$WEBDAV_URL$remote_path" -u "$WEBDAV_USER:$WEBDAV_PASSWORD" > /dev/null 2>&1 || true
+
+    # Upload the file
+    http_code=$(curl -s -w "%{http_code}" -T "$local_file" "$WEBDAV_URL$remote_path" -u "$WEBDAV_USER:$WEBDAV_PASSWORD" -o /dev/null) || true
+    if [ "$http_code" -ne 201 ] && [ "$http_code" -ne 204 ]; then
+        echo "  ⚠️  Warning: HTTP $http_code (continuing anyway)"
+    fi
 }
 
 # Create base collection if it doesn't exist

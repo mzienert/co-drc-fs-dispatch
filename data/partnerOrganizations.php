@@ -14,7 +14,7 @@ return [
     [
         'name' => 'Bureau of Land Management',
         'abbreviation' => 'BLM',
-        'image' => 'blm.png',
+        'image' => 'BLM.png',
         'url' => 'https://www.blm.gov/'
     ],
     [
