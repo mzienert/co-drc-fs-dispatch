@@ -42,7 +42,7 @@
 			scrolling="no"
 			marginheight="0"
 			marginwidth="0"
-			title="RMCC Wildfire Intelligence Map - Website"
+			title="Durango Interagency Dispatch Center - Fire Activity Map"
 			src="<?= Helpers::sanitize($mapUrl) ?>"
 			allowfullscreen>
 		</iframe>
