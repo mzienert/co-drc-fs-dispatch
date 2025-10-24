@@ -808,6 +808,7 @@
 	padding: 0.75em 1em;
 	background: transparent;
 	border: none;
+	border-radius: 0;
 	color: #ffffff !important;
 	font-family: "Open Sans", sans-serif;
 	font-size: 1.15em;
@@ -893,12 +894,12 @@ html.dyslexic-font button {
 
 /* High Contrast Class */
 html.high-contrast {
-	background-color: #FFFEF0;
+	background-color: #FFFFFF;
 	color: #000000;
 }
 
 html.high-contrast body {
-	background-color: #FFFEF0;
+	background-color: #FFFFFF;
 	color: #000000;
 }
 
@@ -907,7 +908,7 @@ html.high-contrast #footer,
 html.high-contrast .mobile-sidebar,
 html.high-contrast .hero-right,
 html.high-contrast .partner-logos-section {
-	background-color: #FFFEF0;
+	background-color: #FFFFFF;
 	color: #000000;
 }
 
@@ -923,9 +924,32 @@ html.high-contrast .accessibility-option {
 	color: #000000 !important;
 }
 
+html.high-contrast .accessibility-dropdown {
+	background-color: #FFFFFF !important;
+}
+
 html.high-contrast .nav-link:hover,
 html.high-contrast .nav-dropdown-link:hover,
 html.high-contrast .accessibility-option:hover {
 	background-color: #E5E5D0 !important;
 	color: #000000 !important;
+}
+
+html.high-contrast .accessibility-option.active {
+	background-color: #E5E5D0 !important;
+	color: #000000 !important;
+}
+
+html.high-contrast .accessibility-option:not(.active) {
+	background-color: transparent !important;
+	color: #000000 !important;
+}
+
+html.high-contrast .nav-dropdown {
+	background-color: #FFFFFF !important;
+}
+
+html.high-contrast .accessibility-icon,
+html.high-contrast .accessibility-option img {
+	filter: invert(1) !important;
 }
