@@ -786,7 +786,7 @@
 
 .accessibility-dropdown {
 	background-color: #000000;
-	border: 1px solid rgba(210, 215, 217, 0.75);
+	border: none;
 	padding: 0.5em 0;
 	margin-top: 0.5em;
 	list-style: none;
@@ -808,7 +808,7 @@
 	padding: 0.75em 1em;
 	background: transparent;
 	border: none;
-	color: #ffffff;
+	color: #ffffff !important;
 	font-family: "Open Sans", sans-serif;
 	font-size: 1.15em;
 	font-weight: 400;
@@ -823,6 +823,7 @@
 .accessibility-option:hover,
 .accessibility-option:focus {
 	background-color: #5A1A1A !important;
+	color: #ffffff !important;
 	box-shadow: none !important;
 }
 
