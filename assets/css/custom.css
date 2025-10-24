@@ -584,3 +584,58 @@
         background-color: rgba(210, 215, 217, 0.25);
     }
 }
+
+
+/* ========================================
+   Fire Activity Map
+   ======================================== */
+
+.fire-activity-map-section {
+	margin: 2em 0;
+}
+
+.map-header {
+	margin-bottom: 1em;
+	text-align: center;
+}
+
+.map-header h2 {
+	font-size: 1.75em;
+	margin: 0;
+	color: #333;
+}
+
+.fire-activity-map-container {
+	position: relative;
+	width: 100%;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	overflow: hidden;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.fire-activity-map-container iframe {
+	display: block;
+	border: none;
+}
+
+.map-attribution {
+	margin-top: 0.5em;
+	text-align: center;
+	color: #666;
+}
+
+.map-attribution p {
+	margin: 0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+	.map-header h2 {
+		font-size: 1.5em;
+	}
+
+	.fire-activity-map-container {
+		min-height: 400px;
+	}
+}
