@@ -871,7 +871,7 @@ html.font-size-large body {
 }
 
 /* Dyslexic Font Class */
-html.dyslexic-font,
+html.dyslexic-font *,
 html.dyslexic-font body,
 html.dyslexic-font input,
 html.dyslexic-font select,
