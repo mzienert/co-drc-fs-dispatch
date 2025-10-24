@@ -81,6 +81,8 @@
 
 		<?php Helpers::component('footer', ['navItems' => $navItems, 'contact' => $footerContact, 'dispatchInfo' => $dispatchInfo]); ?>
 
+		<?php Helpers::component('partner-logos', ['dispatchInfo' => $dispatchInfo]); ?>
+
 		<?php include(__DIR__ . '/../scripts.php'); ?>
 
 		<script>
