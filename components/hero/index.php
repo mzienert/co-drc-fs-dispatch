@@ -8,10 +8,10 @@
 <section id="hero" style="background-image: url('<?= Helpers::sanitize($basePath) ?>/assets/images/hero.jpg');">
 	<div class="hero-container">
 		<div class="row">
-			<div class="col-7 hero-left">
+			<div class="col-7 col-12-medium hero-left">
 				<img src="<?= Helpers::sanitize($basePath) ?>/assets/images/logo.png" alt="<?= Helpers::sanitize(Helpers::prop($props, 'dispatchInfo.name')) ?>" class="hero-logo" />
 			</div>
-			<div class="col-5 hero-right">
+			<div class="col-5 col-12-medium hero-right">
 				<div class="preparedness-levels">
 					<h2>Current Fire Danger</h2>
 

@@ -339,24 +339,45 @@
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
-    min-height: 499px;
     margin: -2em -1em 2em -1em;
 }
 
 .hero-container {
     padding: 0;
-    height: 100%;
 }
 
 .hero-container .row {
-    height: 100%;
     margin: 0 !important;
     padding: 0 !important;
 }
 
-.hero-left,
+/* Mobile-first: min-height for logo visibility */
+.hero-left {
+    min-height: 300px;
+}
+
 .hero-right {
-    min-height: 499px;
+    min-height: auto;
+}
+
+/* Desktop: apply fixed heights at medium breakpoint (980px+) */
+@media screen and (min-width: 981px) {
+    #hero {
+        min-height: 499px;
+    }
+
+    .hero-container {
+        height: 100%;
+    }
+
+    .hero-container .row {
+        height: 100%;
+    }
+
+    .hero-left,
+    .hero-right {
+        min-height: 499px;
+    }
 }
 
 .hero-left {
