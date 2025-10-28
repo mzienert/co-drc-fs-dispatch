@@ -4,7 +4,7 @@
 
 	// Get props with defaults
 	$title = Helpers::prop($props, 'title', 'Current Fire Activity');
-	$height = Helpers::prop($props, 'height', '600px');
+	$height = Helpers::prop($props, 'height', '1000px');
 	$showTitle = Helpers::prop($props, 'showTitle', true);
 	$basePath = Helpers::prop($props, 'dispatchInfo.base_path');
 
@@ -34,7 +34,7 @@
 		</header>
 	<?php endif; ?>
 
-	<div class="fire-activity-map-container" style="height: <?= Helpers::sanitize($height) ?>;">
+	<div class="fire-activity-map-container" style="--desktop-height: <?= Helpers::sanitize($height) ?>;">
 		<iframe
 			width="100%"
 			height="100%"

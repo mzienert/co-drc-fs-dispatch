@@ -12,11 +12,16 @@
 
 <?php Helpers::component('hero', ['dispatchInfo' => $dispatchInfo]); ?>
 
-<h1>Welcome to <?= Helpers::sanitize($dispatchInfo['name']) ?></h1>
-
-<?php Helpers::component('fire-activity-map', [
-    'title' => 'Current Fire Activity',
-    'height' => '600px',
-    'dispatchInfo' => $dispatchInfo
-]); ?>
+<div class="row">
+    <div class="col-6 col-12-medium">
+        <!-- Left column content -->
+    </div>
+    <div class="col-6 col-12-medium">
+        <?php Helpers::component('fire-activity-map', [
+            'title' => 'Current Fire Activity',
+            'height' => '500px',
+            'dispatchInfo' => $dispatchInfo
+        ]); ?>
+    </div>
+</div>
 

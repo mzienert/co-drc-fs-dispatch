@@ -632,7 +632,7 @@
 }
 
 .map-header h2 {
-	font-size: 1.5em;
+	font-size: 2em;
 	margin: 0;
 	color: #333;
 }
@@ -640,7 +640,7 @@
 .fire-activity-map-container {
 	position: relative;
 	width: 100%;
-	min-height: 400px;
+	height: 400px; /* Fixed mobile height */
 	border: 1px solid #ddd;
 	border-radius: 4px;
 	overflow: hidden;
@@ -665,11 +665,11 @@
 /* Desktop and up */
 @media screen and (min-width: 769px) {
 	.map-header h2 {
-		font-size: 1.75em;
+		font-size: 2.5em;
 	}
 
 	.fire-activity-map-container {
-		min-height: 600px;
+		height: var(--desktop-height, 600px); /* Use prop or fallback to 600px */
 	}
 }
 
