@@ -3,7 +3,12 @@
 <header id="header">
 	<div class="header-container">
 		<div class="header-title">
-			<?= Helpers::sanitize(Helpers::prop($props, 'dispatchInfo.name')) ?>
+			<?php
+			$name = Helpers::sanitize(Helpers::prop($props, 'dispatchInfo.name'));
+			// Add line break after "Interagency" on mobile
+			$nameWithBreak = str_replace('Interagency ', 'Interagency<br class="mobile-break"> ', $name);
+			echo $nameWithBreak;
+			?>
 		</div>
 		<!-- Desktop Navigation -->
 		<div class="desktop-nav">

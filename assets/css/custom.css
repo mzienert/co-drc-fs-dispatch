@@ -84,6 +84,10 @@
     padding-left: 0.5em;
 }
 
+.header-title .mobile-break {
+    display: inline; /* Show break on mobile */
+}
+
 .hamburger-menu {
     background: transparent;
     border: none;
@@ -112,10 +116,14 @@
     display: none;
 }
 
-/* Hide hamburger on desktop (medium breakpoint 980px+) */
+/* Hide hamburger and line break on desktop (medium breakpoint 980px+) */
 @media screen and (min-width: 981px) {
     .hamburger-menu {
         display: none;
+    }
+
+    .header-title .mobile-break {
+        display: none; /* Hide break on desktop */
     }
 
     .desktop-nav {
