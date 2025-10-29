@@ -189,21 +189,19 @@
    Content Area
    ======================================== */
 
-/* Mobile-first content area */
 .content-area {
     padding: 2em 1.5em;
 }
 
-/* Override RMCC default padding on .inner for mobile */
 #main > .inner {
-    padding: 0; /* Remove RMCC padding, handle in content-area */
+    padding: 0;
 }
 
 #main > .inner > section {
-    padding: 2em 1.5em !important; /* Override RMCC mobile padding that removes horizontal padding */
+    padding: 2em 1.5em !important;
 }
 
-/* Desktop - more horizontal padding */
+/* Desktop */
 @media screen and (min-width: 981px) {
     .content-area {
         padding: 2em 2.5em;
@@ -214,16 +212,14 @@
     }
 }
 
-/* Content row - reusable spacing for content sections */
 .content-row {
-    margin: 2em 0;
+    margin: 2em 0 0 0;
 }
 
 .content-row:first-child {
     margin-top: 0;
 }
 
-/* Content area h2 styling - match fire activity map header */
 .content-area h2 {
     font-size: 2em;
     margin: 0 0 1em 0;
@@ -231,22 +227,26 @@
     color: #3d4449; /* RMCC primary text color - WCAG AA compliant */
 }
 
-/* Content area paragraph styling - larger, more readable text */
 .content-area p {
     font-size: 1.15em;
     line-height: 1.75;
-    color: #3d4449; /* RMCC primary text color - WCAG AA compliant */
+    color: #3d4449;
 }
 
-/* About section - consistent padding/margin with other sections */
 .about-section {
     margin: 0;
+    background-color: #f5f6f7;
+    padding: 2em;
+    border-radius: 4px;
 }
 
-/* Desktop spacing for content rows */
+.about-text {
+    color: #3d4449;
+}
+
 @media screen and (min-width: 981px) {
     .content-row {
-        margin: 3em 0;
+        margin: 3em 0 0 0;
     }
 
     .content-area h2 {
@@ -314,7 +314,7 @@
 }
 
 .footer-contact-item a:hover {
-    color: #D4AF37 !important;
+    color: #FCD045 !important;
     text-decoration: underline;
 }
 
@@ -346,7 +346,7 @@
 }
 
 .footer-nav-title a:hover {
-    color: #D4AF37 !important;
+    color: #FCD045 !important;
     text-decoration: underline;
 }
 
@@ -371,7 +371,7 @@
 }
 
 .footer-nav-item a:hover {
-    color: #D4AF37 !important;
+    color: #FCD045 !important;
     text-decoration: underline;
 }
 
@@ -472,7 +472,7 @@
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #D4AF37;
+    color: #FCD045;
 }
 
 .pl-item {
@@ -502,8 +502,8 @@
 .pl-expand-icon {
     width: 24px;
     height: 24px;
-    color: #D4AF37;
-    fill: #D4AF37;
+    color: #FCD045;
+    fill: #FCD045;
     transition: transform 0.3s ease;
     flex-shrink: 0;
     margin-left: 1em;
@@ -520,15 +520,15 @@
     margin: 0 0 0.5em 0;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #D4AF37;
+    color: #FCD045;
 }
 
 .pl-value {
     font-family: "Open Sans", sans-serif;
-    font-size: 3em;
+    font-size: 3em !important;
     font-weight: 700;
     margin: 0;
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     line-height: 1;
 }
 
@@ -558,7 +558,7 @@
     font-family: "Open Sans", sans-serif;
     font-size: 1em;
     font-weight: 600;
-    color: #D4AF37 !important;
+    color: #FCD045 !important;
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: all 0.2s ease;

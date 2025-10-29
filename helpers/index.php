@@ -149,5 +149,35 @@ class Helpers {
 
         return $defaultValues;
     }
+
+    /**
+     * Get home page content from SharePoint
+     * Returns array with title and body values
+     *
+     * @return array Array with 'title' and 'body' keys
+     */
+    public static function getHomeContent() {
+        $defaultValues = [
+            'title' => 'About the Durango Interagency Dispatch Center',
+            'body' => ''
+        ];
+
+        $items = self::getSharePointList('website-data');
+        if ($items === null) {
+            return $defaultValues;
+        }
+
+        // Find the home-content row
+        foreach ($items as $item) {
+            if (isset($item['Title']) && $item['Title'] === 'home-content') {
+                return [
+                    'title' => $item['title0'] ?? $defaultValues['title'],
+                    'body' => $item['body'] ?? $defaultValues['body']
+                ];
+            }
+        }
+
+        return $defaultValues;
+    }
 }
 ?>

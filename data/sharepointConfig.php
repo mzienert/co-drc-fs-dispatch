@@ -9,10 +9,10 @@
 return [
     // Website data list configuration
     'website-data' => [
-        'shareLink' => 'https://firenet365-my.sharepoint.com/:li:/g/personal/matthew_zienert_firenet_gov/EwJJ7K0ZNa5EigUA0RtwFewBss0J7j0g_Pu5buHB44Jj7Q?e=QIVqr2',
+        'shareLink' => 'https://firenet365-my.sharepoint.com/:l:/g/personal/matthew_zienert_firenet_gov/FLho6BsGkINJjgT19zahNicBGZ-FPUanO0lr-tZU1NOceA?e=tOUQpa',
         'listGuid' => '1be868b8-9006-4983-8e04-f5f736a13627',
         'siteUrl' => 'https://firenet365-my.sharepoint.com/personal/matthew_zienert_firenet_gov',
-        'cacheDuration' => 300, // 5 minutes
+        'cacheDuration' => 300,
         'debug' => false
     ],
 
