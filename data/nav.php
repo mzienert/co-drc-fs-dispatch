@@ -1,15 +1,19 @@
 <?php
+    // Load dispatch info to get site_path
+    $dispatchInfo = require __DIR__ . '/dispatchCenterInfo.php';
+    $sitePath = $dispatchInfo['site_path'];
+
     return [
-        ['label' => 'Home', 'url' => '/'],
+        ['label' => 'Home', 'url' => $sitePath . '/'],
         [
             'label' => 'About',
-            'url' => '/about/',
+            'url' => $sitePath . '/about/',
             'children' => [
-                ['label' => 'Our Team', 'url' => '/about/team/'],
-                ['label' => 'History', 'url' => '/about/history/']
+                ['label' => 'Our Team', 'url' => $sitePath . '/about/team/'],
+                ['label' => 'History', 'url' => $sitePath . '/about/history/']
             ]
         ],
-        ['label' => 'Smoke Report', 'url' => '/testing/',],
-        ['label' => 'Contact', 'url' => '/contact/']
+        ['label' => 'Smoke Report', 'url' => $sitePath . '/testing/',],
+        ['label' => 'Contact', 'url' => $sitePath . '/contact/']
     ];
 ?>
