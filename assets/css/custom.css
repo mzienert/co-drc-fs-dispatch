@@ -191,7 +191,7 @@
 
 /* Mobile-first content area */
 .content-area {
-    padding: 2em 1em;
+    padding: 2em 1.5em;
 }
 
 /* Override RMCC default padding on .inner for mobile */
@@ -200,7 +200,50 @@
 }
 
 #main > .inner > section {
-    padding: 2em 1em !important; /* Override RMCC mobile padding that removes horizontal padding */
+    padding: 2em 1.5em !important; /* Override RMCC mobile padding that removes horizontal padding */
+}
+
+/* Desktop - more horizontal padding */
+@media screen and (min-width: 981px) {
+    .content-area {
+        padding: 2em 2.5em;
+    }
+
+    #main > .inner > section {
+        padding: 2em 2.5em !important;
+    }
+}
+
+/* Content row - reusable spacing for content sections */
+.content-row {
+    margin: 2em 0;
+}
+
+.content-row:first-child {
+    margin-top: 0;
+}
+
+/* Content area h2 styling - match fire activity map header */
+.content-area h2 {
+    font-size: 2em;
+    margin: 0 0 1em 0;
+    text-align: center;
+}
+
+/* About section - consistent padding/margin with other sections */
+.about-section {
+    margin: 0;
+}
+
+/* Desktop spacing for content rows */
+@media screen and (min-width: 981px) {
+    .content-row {
+        margin: 3em 0;
+    }
+
+    .content-area h2 {
+        font-size: 2.5em;
+    }
 }
 
 
@@ -623,7 +666,7 @@
 
 /* Mobile-first base styles */
 .fire-activity-map-section {
-	margin: 2em 0;
+	margin: 0;
 }
 
 .map-header {
