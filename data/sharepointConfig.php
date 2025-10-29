@@ -6,9 +6,11 @@
  * See /docs/SHAREPOINT-INTEGRATION.md for setup instructions.
  */
 
+define('SHAREPOINT_WEBSITE_DATA_LIST', 'website-data');
+
 return [
     // Website data list configuration
-    'website-data' => [
+    SHAREPOINT_WEBSITE_DATA_LIST => [
         'shareLink' => 'https://firenet365-my.sharepoint.com/:l:/g/personal/matthew_zienert_firenet_gov/FLho6BsGkINJjgT19zahNicBGZ-FPUanO0lr-tZU1NOceA?e=tOUQpa',
         'listGuid' => '1be868b8-9006-4983-8e04-f5f736a13627',
         'siteUrl' => 'https://firenet365-my.sharepoint.com/personal/matthew_zienert_firenet_gov',

@@ -93,8 +93,6 @@ class Helpers {
      * @return array|null Array of items or null on error
      */
     public static function getSharePointList($listName) {
-        require_once __DIR__ . '/../lib/SharePointListClient.php';
-
         // Load SharePoint config
         $configFile = __DIR__ . '/../data/sharepointConfig.php';
         if (!file_exists($configFile)) {
@@ -132,7 +130,7 @@ class Helpers {
             'lower-elevation' => 'N/A'
         ];
 
-        $items = self::getSharePointList('website-data');
+        $items = self::getSharePointList(SHAREPOINT_WEBSITE_DATA_LIST);
         if ($items === null) {
             return $defaultValues;
         }
@@ -162,7 +160,7 @@ class Helpers {
             'body' => ''
         ];
 
-        $items = self::getSharePointList('website-data');
+        $items = self::getSharePointList(SHAREPOINT_WEBSITE_DATA_LIST);
         if ($items === null) {
             return $defaultValues;
         }
