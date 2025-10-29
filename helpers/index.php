@@ -133,9 +133,6 @@ class Helpers {
      * @return array Array with 'higher-elevation' and 'lower-elevation' keys
      */
     public static function getFireDanger() {
-        // Load SharePoint config to define constants
-        require_once __DIR__ . '/../data/sharepointConfig.php';
-
         $defaultValues = [
             'higher-elevation' => 'N/A',
             'lower-elevation' => 'N/A'
@@ -166,9 +163,6 @@ class Helpers {
      * @return array Array with 'title' and 'body' keys
      */
     public static function getHomeContent() {
-        // Load SharePoint config to define constants
-        require_once __DIR__ . '/../data/sharepointConfig.php';
-
         $defaultValues = [
             'title' => 'About the Durango Interagency Dispatch Center',
             'body' => ''

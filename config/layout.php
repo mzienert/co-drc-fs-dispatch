@@ -5,13 +5,15 @@
      * Returns layout data for use in templates
      */
 
+    // Load Composer autoloader
+    require_once __DIR__ . '/../vendor/autoload.php';
+
     // Load error handler first (so it catches errors in other files)
     require_once __DIR__ . '/error-handler.php';
 
-    // Load helper functions and classes
-    require_once __DIR__ . '/../helpers/index.php';
-    require_once __DIR__ . '/../lib/PageContext.php';
-    require_once __DIR__ . '/../lib/SharePointListClient.php';
+    // Load SharePoint config (defines constants and returns config array)
+    // This needs to be loaded here so constants are available throughout the app
+    $sharepointConfig = require_once __DIR__ . '/../data/sharepointConfig.php';
 
     // Load and prepare application data
     $layoutData = [
