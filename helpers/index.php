@@ -7,6 +7,11 @@ namespace App;
  */
 class Helpers {
     /**
+     * Cache for SharePoint config
+     */
+    private static $sharepointConfig = null;
+
+    /**
      * Get a prop value with optional default
      * Usage: \App\Helpers::prop($props, 'dispatchInfo.base_path', '')
      *
@@ -93,14 +98,17 @@ class Helpers {
      * @return array|null Array of items or null on error
      */
     public static function getSharePointList($listName) {
-        // Load SharePoint config
-        $configFile = __DIR__ . '/../data/sharepointConfig.php';
-        if (!file_exists($configFile)) {
-            error_log("SharePoint config file not found: $configFile");
-            return null;
+        // Load SharePoint config once and cache it
+        if (self::$sharepointConfig === null) {
+            $configFile = __DIR__ . '/../data/sharepointConfig.php';
+            if (!file_exists($configFile)) {
+                error_log("SharePoint config file not found: $configFile");
+                return null;
+            }
+            self::$sharepointConfig = require $configFile;
         }
 
-        $allConfigs = require $configFile;
+        $allConfigs = self::$sharepointConfig;
 
         if (!isset($allConfigs[$listName])) {
             error_log("SharePoint list config not found: $listName");
@@ -125,6 +133,9 @@ class Helpers {
      * @return array Array with 'higher-elevation' and 'lower-elevation' keys
      */
     public static function getFireDanger() {
+        // Load SharePoint config to define constants
+        require_once __DIR__ . '/../data/sharepointConfig.php';
+
         $defaultValues = [
             'higher-elevation' => 'N/A',
             'lower-elevation' => 'N/A'
@@ -155,6 +166,9 @@ class Helpers {
      * @return array Array with 'title' and 'body' keys
      */
     public static function getHomeContent() {
+        // Load SharePoint config to define constants
+        require_once __DIR__ . '/../data/sharepointConfig.php';
+
         $defaultValues = [
             'title' => 'About the Durango Interagency Dispatch Center',
             'body' => ''

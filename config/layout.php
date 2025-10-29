@@ -8,9 +8,10 @@
     // Load error handler first (so it catches errors in other files)
     require_once __DIR__ . '/error-handler.php';
 
-    // Load helper functions
+    // Load helper functions and classes
     require_once __DIR__ . '/../helpers/index.php';
     require_once __DIR__ . '/../lib/PageContext.php';
+    require_once __DIR__ . '/../lib/SharePointListClient.php';
 
     // Load and prepare application data
     $layoutData = [

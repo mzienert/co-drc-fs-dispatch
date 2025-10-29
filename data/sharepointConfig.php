@@ -6,7 +6,9 @@
  * See /docs/SHAREPOINT-INTEGRATION.md for setup instructions.
  */
 
-define('SHAREPOINT_WEBSITE_DATA_LIST', 'website-data');
+if (!defined('SHAREPOINT_WEBSITE_DATA_LIST')) {
+    define('SHAREPOINT_WEBSITE_DATA_LIST', 'website-data');
+}
 
 return [
     // Website data list configuration
