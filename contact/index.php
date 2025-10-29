@@ -61,7 +61,7 @@
             <h2>Location</h2>
             <div class="map-container" style="position: relative; padding-bottom: 75%; height: 0; overflow: hidden;">
                 <iframe
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=<?= urlencode($dispatchInfo['address_line_1'] . ', ' . $dispatchInfo['address_line_2']) ?>&zoom=15"
+                    src="https://maps.google.com/maps?q=<?= urlencode($dispatchInfo['address_line_1'] . ', ' . $dispatchInfo['address_line_2']) ?>&output=embed"
                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
                     allowfullscreen
                     loading="lazy"
