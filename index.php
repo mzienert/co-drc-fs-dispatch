@@ -19,7 +19,7 @@
     <div class="col-6 col-12-medium">
         <section class="about-section">
             <h2><?= Helpers::sanitize($homeContent['title']) ?></h2>
-            <div class="about-text">
+            <div class="content-text">
                 <?php
                 $paragraphs = explode("\n\n", $homeContent['body']);
                 foreach ($paragraphs as $para):

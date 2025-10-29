@@ -15,7 +15,7 @@
         <section class="about-section">
             <h2>Contact Information</h2>
 
-            <div class="about-text">
+            <div class="content-text">
                 <div class="row gtr-50">
                     <div class="col-6 col-12-small">
                         <p>

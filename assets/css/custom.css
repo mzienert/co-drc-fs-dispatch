@@ -240,7 +240,7 @@
     border-radius: 4px;
 }
 
-.about-text {
+.content-text {
     color: #3d4449;
 }
 
@@ -674,8 +674,8 @@
    ======================================== */
 
 /* Center contact info in columns */
-.about-section .about-text .col-6,
-.about-section .about-text .col-12-small {
+.about-section .content-text .col-6,
+.about-section .content-text .col-12-small {
 	text-align: center !important;
 }
 
