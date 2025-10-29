@@ -548,7 +548,7 @@
     font-family: "Open Sans", sans-serif;
     font-size: 1em;
     line-height: 1.6;
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     margin: 0;
     padding-bottom: 1.5em;
 }

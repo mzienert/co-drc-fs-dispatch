@@ -139,9 +139,9 @@ class Helpers {
 
     /**
      * Get fire danger levels from SharePoint
-     * Returns array with higher-elevation and lower-elevation values
+     * Returns array with higher-elevation, lower-elevation, and their descriptions
      *
-     * @return array Array with 'higher-elevation' and 'lower-elevation' keys
+     * @return array Array with 'higher-elevation', 'lower-elevation', 'higher-elevation-description', and 'lower-elevation-description' keys
      */
     public static function getFireDanger() {
         // Load config to ensure constants are defined
@@ -149,7 +149,9 @@ class Helpers {
 
         $defaultValues = [
             'higher-elevation' => 'N/A',
-            'lower-elevation' => 'N/A'
+            'lower-elevation' => 'N/A',
+            'higher-elevation-description' => '',
+            'lower-elevation-description' => ''
         ];
 
         $items = self::getSharePointList(SHAREPOINT_WEBSITE_DATA_LIST);
@@ -162,7 +164,9 @@ class Helpers {
             if (isset($item['Title']) && $item['Title'] === 'fire-danger') {
                 return [
                     'higher-elevation' => $item['higher-elevation'] ?? 'N/A',
-                    'lower-elevation' => $item['lower-elevation'] ?? 'N/A'
+                    'lower-elevation' => $item['lower-elevation'] ?? 'N/A',
+                    'higher-elevation-description' => $item['higher-elevation-des'] ?? '',
+                    'lower-elevation-description' => $item['lower-elevation-desc'] ?? ''
                 ];
             }
         }

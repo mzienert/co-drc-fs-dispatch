@@ -25,7 +25,7 @@
 							<img src="<?= Helpers::sanitize($basePath) ?>/assets/svg/plus.svg" alt="Expand" class="pl-expand-icon" />
 						</div>
 						<div class="pl-details">
-							<p class="pl-description"></p>
+							<p class="pl-description"><?= Helpers::sanitize($fireDanger['higher-elevation-description']) ?></p>
 						</div>
 					</div>
 
@@ -39,7 +39,7 @@
 							<img src="<?= Helpers::sanitize($basePath) ?>/assets/svg/plus.svg" alt="Expand" class="pl-expand-icon" />
 						</div>
 						<div class="pl-details">
-							<p class="pl-description"></p>
+							<p class="pl-description"><?= Helpers::sanitize($fireDanger['lower-elevation-description']) ?></p>
 						</div>
 					</div>
 				</div>
