@@ -8,10 +8,10 @@
         [
             'label' => 'About',
             'url' => $sitePath . '/about/',
-            'children' => [
+            /* 'children' => [
                 ['label' => 'Our Team', 'url' => $sitePath . '/about/team/'],
                 ['label' => 'History', 'url' => $sitePath . '/about/history/']
-            ]
+            ] */
         ],
         ['label' => 'Smoke Report', 'url' => $sitePath . '/testing/',],
         ['label' => 'Contact', 'url' => $sitePath . '/contact/']
