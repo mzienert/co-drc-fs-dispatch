@@ -464,8 +464,15 @@
 }
 
 .hero-logo {
-    max-width: 50%;
+    max-width: 70%;
     height: auto;
+}
+
+/* Desktop: reduce logo size back down */
+@media screen and (min-width: 981px) {
+    .hero-logo {
+        max-width: 50%;
+    }
 }
 
 .hero-right {
