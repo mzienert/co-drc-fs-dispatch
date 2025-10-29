@@ -670,6 +670,17 @@
 
 
 /* ========================================
+   Contact Page
+   ======================================== */
+
+/* Center contact info in columns */
+.about-section .about-text .col-6,
+.about-section .about-text .col-12-small {
+	text-align: center !important;
+}
+
+
+/* ========================================
    Fire Activity Map
    ======================================== */
 
