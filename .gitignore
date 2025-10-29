@@ -51,5 +51,8 @@ composer.lock
 /tests/coverage/
 .phpunit.result.cache
 
+# Cache files
+/cache/*.json
+
 notes.txt
 /scripts
