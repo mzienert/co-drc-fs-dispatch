@@ -228,6 +228,14 @@
     font-size: 2em;
     margin: 0 0 1em 0;
     text-align: center;
+    color: #3d4449; /* RMCC primary text color - WCAG AA compliant */
+}
+
+/* Content area paragraph styling - larger, more readable text */
+.content-area p {
+    font-size: 1.15em;
+    line-height: 1.75;
+    color: #3d4449; /* RMCC primary text color - WCAG AA compliant */
 }
 
 /* About section - consistent padding/margin with other sections */
@@ -390,7 +398,7 @@
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
-    margin: -2em -1em 2em -1em;
+    margin: -2em -1.5em 2em -1.5em; /* Negative margin matches content-area horizontal padding */
 }
 
 .hero-container {
@@ -415,6 +423,7 @@
 @media screen and (min-width: 981px) {
     #hero {
         min-height: 499px;
+        margin: -2em -2.5em 2em -2.5em; /* Negative margin matches desktop content-area padding */
     }
 
     .hero-container {
@@ -677,7 +686,7 @@
 .map-header h2 {
 	font-size: 2em;
 	margin: 0;
-	color: #333;
+	color: #3d4449; /* RMCC primary text color - WCAG AA compliant */
 }
 
 .fire-activity-map-container {
