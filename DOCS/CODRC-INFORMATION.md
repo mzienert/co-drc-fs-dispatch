@@ -6,7 +6,7 @@ The Durango Interagency Dispatch Center (CODRC) serves as the critical coordinat
 
 ## Interagency Partnership
 
-The Durango Dispatch Center serves as the interagency focal point for resource mobilization across five federal agencies: the San Juan National Forest (U.S. Forest Service), Tres Rios Field Office (Bureau of Land Management), Southern Ute Agency (Bureau of Indian Affairs), Ute Mountain Ute Agency (Bureau of Indian Affairs), and Mesa Verde National Park (National Park Service). These agencies share the cost of dispatch services, creating a unified emergency response system across jurisdictional boundaries.
+The Durango Dispatch Center serves as the interagency focal point for resource mobilization across five federal agencies: the San Juan National Forest (U.S. Forest Service), San Juan National Forest, BLM, NPS, DFPC, BIA. These agencies share the cost of dispatch services, creating a unified emergency response system across jurisdictional boundaries.
 
 ## Operations & Capabilities
 

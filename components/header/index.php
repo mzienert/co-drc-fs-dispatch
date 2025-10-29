@@ -2,14 +2,14 @@
 <?php use App\Helpers; ?>
 <header id="header">
 	<div class="header-container">
-		<div class="header-title">
+		<a href="<?= Helpers::sanitize(Helpers::prop($props, 'dispatchInfo.site_path')) ?>/" class="header-title">
 			<?php
 			$name = Helpers::sanitize(Helpers::prop($props, 'dispatchInfo.name'));
 			// Add line break after "Interagency" on mobile
 			$nameWithBreak = str_replace('Interagency ', 'Interagency<br class="mobile-break"> ', $name);
 			echo $nameWithBreak;
 			?>
-		</div>
+		</a>
 		<!-- Desktop Navigation -->
 		<div class="desktop-nav">
 			<?php Helpers::component('nav', ['navItems' => $props['navItems']]); ?>

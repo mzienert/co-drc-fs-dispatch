@@ -82,6 +82,14 @@
     font-weight: 400;
     color: #ffffff;
     padding-left: 0.5em;
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.header-title:hover {
+    color: #ffffff !important;
+    text-decoration: none;
+    border-bottom: none;
 }
 
 .header-title .mobile-break {
