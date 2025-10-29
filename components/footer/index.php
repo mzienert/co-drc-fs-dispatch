@@ -6,7 +6,7 @@
 			<div class="col-4 col-12-medium footer-left">
 				<div class="row gtr-50">
 					<div class="col-6">
-						<img src="<?= Helpers::sanitize(Helpers::prop($props, 'dispatchInfo.base_path')) ?>/assets/images/logo.png" alt="Logo" class="footer-logo" />
+						<img src="<?= Helpers::sanitize(Helpers::prop($props, 'dispatchInfo.base_path')) ?>/assets/images/logo_small.png" alt="Logo" class="footer-logo" />
 					</div>
 					<div class="col-6">
 						<div class="footer-contact">
