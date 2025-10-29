@@ -11,6 +11,8 @@ class SharePointListClient {
     private $listGuid;
     private $siteUrl;
     private $cookieFile;
+    private $cacheFile;
+    private $cacheDuration;
     private $debug;
 
     /**
@@ -20,6 +22,7 @@ class SharePointListClient {
      *   - shareLink: "Anyone with the link" URL
      *   - listGuid: List GUID (without braces)
      *   - siteUrl: SharePoint site URL
+     *   - cacheDuration: Cache lifetime in seconds (optional, default 300)
      *   - debug: Enable debug logging (optional, default false)
      */
     public function __construct(array $config) {
@@ -37,11 +40,23 @@ class SharePointListClient {
         $this->shareLink = $config['shareLink'];
         $this->listGuid = $config['listGuid'];
         $this->siteUrl = rtrim($config['siteUrl'], '/');
+        $this->cacheDuration = $config['cacheDuration'] ?? 300; // Default 5 minutes
         $this->debug = $config['debug'] ?? false;
 
-        // Set cookie file path
+        // Set file paths
         $listHash = md5($this->listGuid);
+
+        // Cookies still use system temp (SharePoint requirement)
         $this->cookieFile = sys_get_temp_dir() . "/sp_cookies_$listHash.txt";
+
+        // Cache uses project directory for easy access and server compatibility
+        $cacheDir = __DIR__ . '/../cache';
+        $this->cacheFile = $cacheDir . "/sp_cache_$listHash.json";
+
+        // Ensure cache directory exists
+        if (!is_dir($cacheDir)) {
+            mkdir($cacheDir, 0755, true);
+        }
     }
 
     /**
@@ -58,13 +73,27 @@ class SharePointListClient {
     }
 
     /**
-     * Get list items from SharePoint
+     * Get list items from SharePoint (with caching)
      * This is the main public method to retrieve data
      *
      * @return array|null Array of items or null on error
      */
     public function getItems() {
-        return $this->fetchListItems();
+        // Try cache first
+        $cached = $this->readCache();
+        if ($cached !== null) {
+            return $cached; // Cache hit - fast path!
+        }
+
+        // Cache miss - fetch from SharePoint
+        $items = $this->fetchListItems();
+
+        // Save to cache for next time (if fetch succeeded)
+        if ($items !== null) {
+            $this->writeCache($items);
+        }
+
+        return $items;
     }
 
     /**
@@ -105,6 +134,79 @@ class SharePointListClient {
         });
 
         return $items[0];
+    }
+
+    /**
+     * Read data from cache if valid
+     *
+     * @return array|null Cached items or null if cache miss/expired/invalid
+     */
+    private function readCache() {
+        // Check if cache file exists
+        if (!file_exists($this->cacheFile)) {
+            return null;
+        }
+
+        // Check if cache is expired
+        $fileTime = filemtime($this->cacheFile);
+        $age = time() - $fileTime;
+
+        if ($age > $this->cacheDuration) {
+            // Cache expired
+            if ($this->debug) {
+                error_log("SharePointListClient: Cache expired (age: {$age}s, max: {$this->cacheDuration}s)");
+            }
+            return null;
+        }
+
+        // Read and decode cache file
+        $json = file_get_contents($this->cacheFile);
+        if ($json === false) {
+            error_log("SharePointListClient: Failed to read cache file");
+            return null;
+        }
+
+        $cache = json_decode($json, true);
+        if (!is_array($cache) || !isset($cache['data'])) {
+            error_log("SharePointListClient: Invalid cache format");
+            return null;
+        }
+
+        if ($this->debug) {
+            error_log("SharePointListClient: Cache hit (age: {$age}s)");
+        }
+
+        return $cache['data'];
+    }
+
+    /**
+     * Write data to cache
+     *
+     * @param array $items Items to cache
+     * @return bool True on success, false on failure
+     */
+    private function writeCache(array $items) {
+        $cache = [
+            'timestamp' => time(),
+            'expires' => time() + $this->cacheDuration,
+            'data' => $items
+        ];
+
+        $json = json_encode($cache, JSON_PRETTY_PRINT);
+
+        // Use LOCK_EX to prevent race conditions
+        $result = file_put_contents($this->cacheFile, $json, LOCK_EX);
+
+        if ($result === false) {
+            error_log("SharePointListClient: Failed to write cache file");
+            return false;
+        }
+
+        if ($this->debug) {
+            error_log("SharePointListClient: Wrote cache (" . count($items) . " items, expires in {$this->cacheDuration}s)");
+        }
+
+        return true;
     }
 
     /**

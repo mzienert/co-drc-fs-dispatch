@@ -1,5 +1,6 @@
  <!-- Scripts -->
 <?php
+use App\Helpers;
 global $layoutData;
 $dispatchInfo = $layoutData['dispatchInfo'];
 $basePath = $dispatchInfo['base_path'] ?? '';
@@ -9,5 +10,5 @@ $basePath = $dispatchInfo['base_path'] ?? '';
 <script src="https://gacc.nifc.gov/rmcc/assets/js/breakpoints.min.js"></script>
 <script src="https://gacc.nifc.gov/rmcc/assets/js/util.js"></script>
 <script src="https://gacc.nifc.gov/rmcc/assets/js/main.js"></script>
-<script src="./assets/js/main.js"></script>
-<script src="./assets/js/accessibility.js"></script>
+<script src="<?= Helpers::sanitize($basePath) ?>/assets/js/main.js"></script>
+<script src="<?= Helpers::sanitize($basePath) ?>/assets/js/accessibility.js"></script>
