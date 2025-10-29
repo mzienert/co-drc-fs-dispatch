@@ -152,10 +152,6 @@ class SharePointListClient {
         $age = time() - $fileTime;
 
         if ($age > $this->cacheDuration) {
-            // Cache expired
-            if ($this->debug) {
-                error_log("SharePointListClient: Cache expired (age: {$age}s, max: {$this->cacheDuration}s)");
-            }
             return null;
         }
 
@@ -170,10 +166,6 @@ class SharePointListClient {
         if (!is_array($cache) || !isset($cache['data'])) {
             error_log("SharePointListClient: Invalid cache format");
             return null;
-        }
-
-        if ($this->debug) {
-            error_log("SharePointListClient: Cache hit (age: {$age}s)");
         }
 
         return $cache['data'];
@@ -200,10 +192,6 @@ class SharePointListClient {
         if ($result === false) {
             error_log("SharePointListClient: Failed to write cache file");
             return false;
-        }
-
-        if ($this->debug) {
-            error_log("SharePointListClient: Wrote cache (" . count($items) . " items, expires in {$this->cacheDuration}s)");
         }
 
         return true;
