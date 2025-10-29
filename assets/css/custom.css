@@ -203,6 +203,7 @@
 
 #main > .inner {
     padding: 0;
+    max-width: none;
 }
 
 #main > .inner > section {
