@@ -90,6 +90,22 @@ class Helpers {
     }
 
     /**
+     * Load SharePoint config and ensure constants are defined
+     * This is called internally to lazy-load the config when needed
+     */
+    private static function loadSharePointConfig() {
+        if (self::$sharepointConfig === null) {
+            $configFile = __DIR__ . '/../data/sharepointConfig.php';
+            if (!file_exists($configFile)) {
+                error_log("SharePoint config file not found: $configFile");
+                return false;
+            }
+            self::$sharepointConfig = require $configFile;
+        }
+        return true;
+    }
+
+    /**
      * Get SharePoint list data
      *
      * Usage: \App\Helpers::getSharePointList('website-data')
@@ -98,14 +114,9 @@ class Helpers {
      * @return array|null Array of items or null on error
      */
     public static function getSharePointList($listName) {
-        // Load SharePoint config once and cache it
-        if (self::$sharepointConfig === null) {
-            $configFile = __DIR__ . '/../data/sharepointConfig.php';
-            if (!file_exists($configFile)) {
-                error_log("SharePoint config file not found: $configFile");
-                return null;
-            }
-            self::$sharepointConfig = require $configFile;
+        // Load config to ensure constants are defined
+        if (!self::loadSharePointConfig()) {
+            return null;
         }
 
         $allConfigs = self::$sharepointConfig;
@@ -133,6 +144,9 @@ class Helpers {
      * @return array Array with 'higher-elevation' and 'lower-elevation' keys
      */
     public static function getFireDanger() {
+        // Load config to ensure constants are defined
+        self::loadSharePointConfig();
+
         $defaultValues = [
             'higher-elevation' => 'N/A',
             'lower-elevation' => 'N/A'
@@ -163,6 +177,9 @@ class Helpers {
      * @return array Array with 'title' and 'body' keys
      */
     public static function getHomeContent() {
+        // Load config to ensure constants are defined
+        self::loadSharePointConfig();
+
         $defaultValues = [
             'title' => 'About the Durango Interagency Dispatch Center',
             'body' => ''

@@ -11,11 +11,8 @@
     // Load error handler first (so it catches errors in other files)
     require_once __DIR__ . '/error-handler.php';
 
-    // Load SharePoint config (defines constants and returns config array)
-    // This needs to be loaded here so constants are available throughout the app
-    $sharepointConfig = require_once __DIR__ . '/../data/sharepointConfig.php';
-
     // Load and prepare application data
+    // Note: SharePoint config is lazy-loaded by Helpers class when needed
     $layoutData = [
         'dispatchInfo' => require_once __DIR__ . '/../data/dispatchCenterInfo.php',
         'navItems' => require_once __DIR__ . '/../data/nav.php'
