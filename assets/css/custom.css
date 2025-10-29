@@ -235,6 +235,14 @@
     color: #3d4449; /* RMCC primary text color - WCAG AA compliant */
 }
 
+.about-section h3,
+.content-text h3 {
+    font-size: 1.5em;
+    margin: 1.5em 0 0.75em 0;
+    text-align: center;
+    color: #3d4449;
+}
+
 .content-area p {
     font-size: 1.15em;
     line-height: 1.75;

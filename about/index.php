@@ -8,18 +8,19 @@
     $pageContext->meta_description = "Learn more about {$dispatchInfo['name']}";
 ?>
 
-<?php use App\Helpers; ?>
+<?php
+    use App\Helpers;
+    $aboutContent = Helpers::getAboutContent();
+?>
 
-<div style="background-color: #eee">
-    <h1>Testing <?= Helpers::sanitize($dispatchInfo['name']) ?></h1>
+<h2><?= Helpers::sanitize($aboutContent['title']) ?></h2>
 
-    <p>This is the about page. It demonstrates how easy it is to create new pages with our React-like layout system.</p>
-
-    <h2>Our Mission</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-    <h2>Contact Information</h2>
-    <p><strong>24-Hour Line:</strong> <?= Helpers::sanitize($dispatchInfo['phone_24_hour']) ?></p>
-    <p><strong>Office:</strong> <?= Helpers::sanitize($dispatchInfo['phone_office']) ?></p>
-    <p><strong>Email:</strong> <?= Helpers::sanitize($dispatchInfo['email']) ?></p>
+<div class="row content-row gtr-150">
+    <div class="col-12">
+        <section class="about-section">
+            <div class="content-text">
+                <?= Helpers::parseSimpleMarkdown($aboutContent['body']) ?>
+            </div>
+        </section>
+    </div>
 </div>

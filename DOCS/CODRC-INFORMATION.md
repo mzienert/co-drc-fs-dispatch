@@ -32,8 +32,10 @@ The Durango area hosts world-class fire management resources as part of the San 
 2. **Tres Rios Field Office** (Bureau of Land Management)
 3. **Southern Ute Agency** (Bureau of Indian Affairs)
 4. **Ute Mountain Ute Agency** (Bureau of Indian Affairs)
-5. **Mesa Verde National Park** (National Park Service)
+5. **Division of Fire Prevention & Control (DFPC)
+6. **Mesa Verde National Park** (National Park Service)
 
+BLM, USFS, NPS, DFPC, BIA
 ## Staffing & Operations
 
 ### Core Team

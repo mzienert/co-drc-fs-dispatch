@@ -206,5 +206,73 @@ class Helpers {
 
         return $defaultValues;
     }
+
+    /**
+     * Get about page content from SharePoint
+     * Returns array with title and body values
+     *
+     * @return array Array with 'title' and 'body' keys
+     */
+    public static function getAboutContent() {
+        // Load config to ensure constants are defined
+        self::loadSharePointConfig();
+
+        $defaultValues = [
+            'title' => 'About the Durango Interagency Dispatch Center',
+            'body' => ''
+        ];
+
+        $items = self::getSharePointList(SHAREPOINT_WEBSITE_DATA_LIST);
+        if ($items === null) {
+            return $defaultValues;
+        }
+
+        // Find the about-content row
+        foreach ($items as $item) {
+            if (isset($item['Title']) && $item['Title'] === 'about-content') {
+                return [
+                    'title' => $item['title0'] ?? $defaultValues['title'],
+                    'body' => $item['body'] ?? $defaultValues['body']
+                ];
+            }
+        }
+
+        return $defaultValues;
+    }
+
+    /**
+     * Parse simple markdown-style formatting
+     * Converts **text** to <strong>text</strong> and handles paragraphs
+     *
+     * @param string $text Text with markdown formatting
+     * @return string HTML output
+     */
+    public static function parseSimpleMarkdown($text) {
+        if (empty($text)) {
+            return '';
+        }
+
+        // Convert **text** to <strong>text</strong>
+        $text = preg_replace('/\*\*(.+?)\*\*/s', '<strong>$1</strong>', $text);
+
+        // Split into paragraphs by double newlines
+        $paragraphs = explode("\n\n", $text);
+        $html = '';
+
+        foreach ($paragraphs as $para) {
+            $para = trim($para);
+            if ($para) {
+                // Check if it's a heading (paragraph that is just bold text)
+                if (preg_match('/^<strong>([^<]+)<\/strong>$/', $para, $matches)) {
+                    $html .= '<h3>' . $matches[1] . '</h3>';
+                } else {
+                    // Convert single newlines to <br> within paragraphs
+                    $html .= '<p>' . nl2br($para) . '</p>';
+                }
+            }
+        }
+
+        return $html;
+    }
 }
 ?>
