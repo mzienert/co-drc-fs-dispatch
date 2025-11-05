@@ -236,7 +236,7 @@
     color: #3d4449; /* RMCC primary text color - WCAG AA compliant */
 }
 
-.about-section h3,
+.accent-panel h3,
 .content-text h3 {
     font-size: 2em;
     margin: 0 0 0.75em 0;
@@ -250,7 +250,7 @@
     color: #3d4449;
 }
 
-.about-section {
+.accent-panel {
     margin: 0;
     background-color: #f5f6f7;
     padding: 2em;
@@ -698,8 +698,8 @@
    ======================================== */
 
 /* Center contact info in columns */
-.about-section .content-text .col-6,
-.about-section .content-text .col-12-small {
+.accent-panel .content-text .col-6,
+.accent-panel .content-text .col-12-small {
 	text-align: center !important;
 }
 
@@ -1070,4 +1070,51 @@ html.high-contrast .nav-dropdown {
 html.high-contrast .accessibility-icon,
 html.high-contrast .accessibility-option img {
 	filter: invert(1) !important;
+}
+
+
+/* ========================================
+   Smoke Report Page
+   ======================================== */
+
+/* Mobile: Add margin between sections */
+.smoke-report-section .row {
+	margin-bottom: 2rem;
+}
+
+/* Mobile: Add margin between text box and image when stacked */
+.smoke-report-text {
+	margin-bottom: 1.5rem;
+}
+
+/* Image column styling */
+.smoke-report-image-col {
+	text-align: center;
+}
+
+/* Smoke report images */
+.smoke-report-image {
+	width: 100%;
+	height: auto;
+}
+
+/* Step 6 centered text */
+.smoke-report-section .accent-panel.step-6 {
+	text-align: center;
+}
+
+/* Desktop: Use flexbox order to visually position image on left */
+@media screen and (min-width: 981px) {
+	.smoke-report-row {
+		display: flex;
+	}
+
+	.smoke-report-text {
+		order: 2;
+		margin-bottom: 0; /* Remove margin on desktop */
+	}
+
+	.smoke-report-image-col {
+		order: 1;
+	}
 }

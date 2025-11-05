@@ -17,7 +17,7 @@
 
 <div class="row content-row gtr-150">
     <div class="col-12">
-        <section class="about-section">
+        <section class="accent-panel">
             <div class="content-text">
                 <?= Helpers::parseSimpleMarkdown($aboutContent['body']) ?>
             </div>

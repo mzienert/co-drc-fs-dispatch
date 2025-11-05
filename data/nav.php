@@ -13,7 +13,7 @@
                 ['label' => 'History', 'url' => $sitePath . '/about/history/']
             ] */
         ],
-        ['label' => 'Smoke Report', 'url' => $sitePath . '/testing/',],
+        ['label' => 'Smoke Report', 'url' => $sitePath . '/smoke-report/',],
         ['label' => 'Contact', 'url' => $sitePath . '/contact/']
     ];
 ?>

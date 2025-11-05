@@ -17,7 +17,7 @@
 
 <div class="row content-row gtr-150">
     <div class="col-6 col-12-medium">
-        <section class="about-section">
+        <section class="accent-panel">
             <h2><?= Helpers::sanitize($homeContent['title']) ?></h2>
             <div class="content-text">
                 <?php
