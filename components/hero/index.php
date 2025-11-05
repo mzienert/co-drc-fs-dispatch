@@ -15,11 +15,11 @@
 				<div class="preparedness-levels">
 					<h2>Current Fire Danger</h2>
 
-					<!-- Higher Elevation -->
+					<!-- Upper Elevation -->
 					<div class="pl-item" data-expandable>
 						<div class="pl-header">
 							<div class="pl-header-content">
-								<h3 class="pl-label">Higher Elevation</h3>
+								<h3 class="pl-label">Upper Elevation</h3>
 								<p class="pl-value"><?= Helpers::sanitize($fireDanger['higher-elevation'], true) ?></p>
 							</div>
 							<img src="<?= Helpers::sanitize($basePath) ?>/assets/svg/plus.svg" alt="Expand" class="pl-expand-icon" />
