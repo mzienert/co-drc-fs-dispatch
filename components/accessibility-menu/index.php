@@ -4,9 +4,10 @@
 
 	// Get props
 	$basePath = Helpers::prop($props, 'dispatchInfo.base_path', '');
+	$context = Helpers::prop($props, 'context', 'desktop'); // 'desktop' or 'mobile'
 ?>
 
-<div class="accessibility-menu">
+<div class="accessibility-menu accessibility-menu-<?= Helpers::sanitize($context) ?>">
 	<button class="accessibility-toggle" aria-label="Accessibility Options" aria-expanded="false">
 		<img src="<?= Helpers::sanitize($basePath) ?>/assets/svg/wheelchair.svg" alt="" class="accessibility-icon" aria-hidden="true" />
 	</button>

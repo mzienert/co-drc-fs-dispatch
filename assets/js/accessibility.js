@@ -23,56 +23,60 @@
 		// Load saved preferences on page load
 		loadPreferences();
 
-		// Setup dropdown toggle
-		const toggle = document.querySelector('.accessibility-toggle');
-		const dropdown = document.querySelector('.accessibility-dropdown');
+		// Setup dropdown toggle for all instances (desktop and mobile)
+		const menus = document.querySelectorAll('.accessibility-menu');
 
-		if (toggle && dropdown) {
-			toggle.addEventListener('click', function(e) {
-				e.stopPropagation();
-				const isHidden = dropdown.hasAttribute('hidden');
+		menus.forEach(function(menu) {
+			const toggle = menu.querySelector('.accessibility-toggle');
+			const dropdown = menu.querySelector('.accessibility-dropdown');
 
-				if (isHidden) {
-					dropdown.removeAttribute('hidden');
-					toggle.setAttribute('aria-expanded', 'true');
-				} else {
-					dropdown.setAttribute('hidden', '');
-					toggle.setAttribute('aria-expanded', 'false');
-				}
-			});
+			if (toggle && dropdown) {
+				toggle.addEventListener('click', function(e) {
+					e.stopPropagation();
+					const isHidden = dropdown.hasAttribute('hidden');
 
-			// Close dropdown when clicking outside
-			document.addEventListener('click', function(e) {
-				if (!dropdown.hasAttribute('hidden') &&
-				    !dropdown.contains(e.target) &&
-				    e.target !== toggle) {
-					dropdown.setAttribute('hidden', '');
-					toggle.setAttribute('aria-expanded', 'false');
-				}
-			});
+					if (isHidden) {
+						dropdown.removeAttribute('hidden');
+						toggle.setAttribute('aria-expanded', 'true');
+					} else {
+						dropdown.setAttribute('hidden', '');
+						toggle.setAttribute('aria-expanded', 'false');
+					}
+				});
 
-			// Prevent clicks inside dropdown from closing it
-			dropdown.addEventListener('click', function(e) {
-				e.stopPropagation();
-			});
-		}
+				// Close dropdown when clicking outside
+				document.addEventListener('click', function(e) {
+					if (!dropdown.hasAttribute('hidden') &&
+					    !dropdown.contains(e.target) &&
+					    e.target !== toggle) {
+						dropdown.setAttribute('hidden', '');
+						toggle.setAttribute('aria-expanded', 'false');
+					}
+				});
 
-		// Setup option buttons
-		const fontSizeBtn = document.querySelector('[data-toggle="font-size"]');
-		const dyslexicFontBtn = document.querySelector('[data-toggle="dyslexic-font"]');
-		const highContrastBtn = document.querySelector('[data-toggle="high-contrast"]');
+				// Prevent clicks inside dropdown from closing it
+				dropdown.addEventListener('click', function(e) {
+					e.stopPropagation();
+				});
+			}
+		});
 
-		if (fontSizeBtn) {
-			fontSizeBtn.addEventListener('click', toggleFontSize);
-		}
+		// Setup option buttons for all instances (desktop and mobile)
+		const fontSizeBtns = document.querySelectorAll('[data-toggle="font-size"]');
+		const dyslexicFontBtns = document.querySelectorAll('[data-toggle="dyslexic-font"]');
+		const highContrastBtns = document.querySelectorAll('[data-toggle="high-contrast"]');
 
-		if (dyslexicFontBtn) {
-			dyslexicFontBtn.addEventListener('click', toggleDyslexicFont);
-		}
+		fontSizeBtns.forEach(function(btn) {
+			btn.addEventListener('click', toggleFontSize);
+		});
 
-		if (highContrastBtn) {
-			highContrastBtn.addEventListener('click', toggleHighContrast);
-		}
+		dyslexicFontBtns.forEach(function(btn) {
+			btn.addEventListener('click', toggleDyslexicFont);
+		});
+
+		highContrastBtns.forEach(function(btn) {
+			btn.addEventListener('click', toggleHighContrast);
+		});
 	}
 
 	/**

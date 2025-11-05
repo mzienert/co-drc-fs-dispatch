@@ -13,7 +13,7 @@
 		<!-- Desktop Navigation -->
 		<div class="desktop-nav">
 			<?php Helpers::component('nav', ['navItems' => $props['navItems']]); ?>
-			<?php Helpers::component('accessibility-menu', ['dispatchInfo' => $props['dispatchInfo']]); ?>
+			<?php Helpers::component('accessibility-menu', ['dispatchInfo' => $props['dispatchInfo'], 'context' => 'desktop']); ?>
 		</div>
 		<!-- Mobile Hamburger -->
 		<button class="hamburger-menu" id="menu-toggle" aria-label="Toggle menu">
@@ -26,6 +26,6 @@
 <div id="mobile-sidebar" class="mobile-sidebar">
 	<div class="mobile-sidebar-content">
 		<?php Helpers::component('nav', ['navItems' => $props['navItems']]); ?>
-		<?php Helpers::component('accessibility-menu', ['dispatchInfo' => $props['dispatchInfo']]); ?>
+		<?php Helpers::component('accessibility-menu', ['dispatchInfo' => $props['dispatchInfo'], 'context' => 'mobile']); ?>
 	</div>
 </div>
